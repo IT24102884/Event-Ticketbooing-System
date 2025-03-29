@@ -1,0 +1,233 @@
+/* Login Page - Professional dark blue and white theme */
+
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0a2540 0%, #1a4980 100%);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    padding: 20px;
+}
+
+/* Container Styles */
+.container {
+    width: 100%;
+    max-width: 450px;
+}
+
+.login-card {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    padding-bottom: 30px;
+    transition: transform 0.3s ease;
+}
+
+.login-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Header Styles */
+.login-header {
+    background-color: #0a2540;
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo-icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+    display: inline-block;
+    color: white;
+}
+
+.login-header h1 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.login-header h2 {
+    font-size: 18px;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+/* Form Styles */
+.form-box {
+    padding: 0 30px;
+}
+
+.input-group {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #0a2540;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+label i {
+    margin-right: 8px;
+    color: #0a2540;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    background-color: #f9fafc;
+}
+
+input:focus {
+    border-color: #0a2540;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(10, 37, 64, 0.1);
+}
+
+/* Remember Me and Forgot Password */
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    font-size: 14px;
+}
+
+.remember-me {
+    display: flex;
+    align-items: center;
+}
+
+.remember-me input {
+    margin-right: 8px;
+}
+
+.forgot-password {
+    color: #0a2540;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+    color: #1a4980;
+    text-decoration: underline;
+}
+
+/* Button Styles */
+.login-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #0a2540;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-btn i {
+    margin-right: 10px;
+}
+
+.login-btn:hover {
+    background-color: #1a4980;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(10, 37, 64, 0.2);
+}
+
+.login-btn:active {
+    transform: translateY(0);
+}
+
+/* Error Message Styles */
+.error-message {
+    background-color: #ffebee;
+    color: #d32f2f;
+    padding: 12px 20px;
+    border-radius: 6px;
+    margin: 0 30px 20px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.error-message i {
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+/* Register Link Styles */
+.register-link {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 14px;
+    color: #666;
+    padding: 0 30px;
+}
+
+.register-link a {
+    color: #0a2540;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.register-link a:hover {
+    color: #1a4980;
+    text-decoration: underline;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 15px;
+    }
+
+    .login-header {
+        padding: 25px 15px;
+    }
+
+    .form-box {
+        padding: 0 20px;
+    }
+
+    .error-message {
+        margin: 0 20px 20px;
+    }
+
+    .remember-forgot {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}

@@ -1,0 +1,8 @@
+ginuri,test@gmail.com,123,user
+dana,samapathgeeth34@gmai.com,geeth123,user
+nadil,nadildul@gmail.com,123,user
+geeth,samapathgeeth34@gmai.com,H12rest$,user
+geeth,samapathgeeth34@gmai.com,1221121,user
+geeth,samapathgeeth34@gmai.com,Nadil$123sA,user
+manji,manji@gmail.com,Manji@2004,user
+anjana,anjan@gmail.com,Anjana@1997,user
