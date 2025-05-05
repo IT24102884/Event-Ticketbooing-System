@@ -1,0 +1,5 @@
+ticketID,userID,eventID,seatNumber,status
+T1713099123456,U001,E101,S87,BOOKED
+
+
+
