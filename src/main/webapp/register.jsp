@@ -17,7 +17,10 @@
 <div class="container">
   <div class="form-container">
     <div class="logo-container">
-      <h1><i class="fas fa-ticket-alt"></i> Go2Event</h1>
+      <div class="logo-icon">
+        <i class="fas fa-ticket-alt"></i>
+      </div>
+      <div class="logo-text">Go2Event</div>
     </div>
     <h2>Create Account</h2>
 

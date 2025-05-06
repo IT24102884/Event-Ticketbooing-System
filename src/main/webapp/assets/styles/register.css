@@ -12,7 +12,9 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #0a2540 0%, #1a4980 100%);
+    background-image: url('../image/pexels-wolfgang-1002140-2747449.jpg');
+    background-size: cover;
+    background-position: center;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -28,8 +30,8 @@ body {
 }
 
 .form-container {
-    background-color: white;
-    border-radius: 12px;
+    background-color: rgba(205, 205, 205, 0.95);
+    border-radius: 15px;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
     padding: 40px 30px;
     transition: transform 0.3s ease;
@@ -41,28 +43,42 @@ body {
 
 /* Logo Styles */
 .logo-container {
-    text-align: center;
-    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
 }
 
-.logo-container h1 {
-    color: #0a2540;
+.logo-icon {
+    background: linear-gradient(135deg, #2c6ca3, #3498db);
+    box-shadow: 0 5px 15px rgba(0, 95, 153, 0.3);
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+}
+
+.logo-icon i {
+    color: white;
+    font-size: 24px;
+}
+
+.logo-text {
+    color: #333;
     font-size: 28px;
-    font-weight: 600;
-}
-
-.logo-container i {
-    color: #0a2540;
-    margin-right: 8px;
+    font-weight: 700;
 }
 
 /* Heading Styles */
 h2 {
-    color: #0a2540;
-    font-size: 24px;
+    color: #666;
+    font-size: 20px;
     margin-bottom: 30px;
     text-align: center;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 /* Form Styles */
@@ -73,19 +89,22 @@ form {
 .input-group {
     margin-bottom: 20px;
     position: relative;
+    text-align: left;
 }
 
 label {
-    display: block;
+    display: flex;
+    align-items: center;
     margin-bottom: 8px;
-    color: #0a2540;
+    color: #555;
     font-weight: 500;
     font-size: 14px;
 }
 
 label i {
-    margin-right: 8px;
-    color: #0a2540;
+    margin-right: 10px;
+    color: #3498db;
+    font-size: 18px;
 }
 
 input[type="text"],
@@ -93,48 +112,54 @@ input[type="email"],
 input[type="password"] {
     width: 100%;
     padding: 15px;
-    border: 1px solid #e1e1e1;
+    border: 1px solid #dddddd;
     border-radius: 8px;
-    font-size: 14px;
-    transition: all 0.3s ease;
-    background-color: #f9fafc;
+    font-size: 16px;
+    transition: border-color 0.3s;
+    background-color: white;
 }
 
 input:focus {
-    border-color: #0a2540;
+    border-color: #3498db;
     outline: none;
-    box-shadow: 0 0 0 3px rgba(10, 37, 64, 0.1);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
 }
 
 /* Button Styles */
 .btn-register {
     width: 100%;
     padding: 15px;
-    background-color: #0a2540;
+    background: linear-gradient(135deg, #2c3e50, #3498db);
     color: white;
     border: none;
     border-radius: 8px;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
 .btn-register:hover {
-    background-color: #1a4980;
+    background: linear-gradient(135deg,#2c3e50, #2c6ca3);
+    box-shadow: 0 5px 15px rgba(0, 95, 153, 0.3);
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(10, 37, 64, 0.2);
 }
 
 .btn-register:active {
     transform: translateY(0);
 }
 
+.btn-register i {
+    margin-right: 10px;
+}
+
 /* Error Message Styles */
 .error-message {
-    background-color: #ffebee;
+    background-color: #fdeaee;
     color: #d32f2f;
     padding: 12px;
     border-radius: 6px;
@@ -152,19 +177,19 @@ input:focus {
 /* Login Link Styles */
 .login-link {
     text-align: center;
-    font-size: 14px;
-    color: #666;
+    font-size: 15px;
+    color: #555;
 }
 
 .login-link a {
-    color: #0a2540;
+    color: #3498db;
     text-decoration: none;
     font-weight: 600;
     transition: color 0.3s ease;
 }
 
 .login-link a:hover {
-    color: #1a4980;
+    color: #2980b9;
     text-decoration: underline;
 }
 
@@ -179,10 +204,22 @@ input:focus {
     }
 
     h2 {
-        font-size: 22px;
+        font-size: 18px;
+    }
+
+    .logo-text {
+        font-size: 24px;
     }
 
     .btn-register {
+        padding: 12px;
+    }
+
+    .input-group label {
+        font-size: 14px;
+    }
+
+    .input-group input {
         padding: 12px;
     }
 }

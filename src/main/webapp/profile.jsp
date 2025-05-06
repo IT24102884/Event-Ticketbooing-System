@@ -7,8 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
+
 <%
+    response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
+    if(session.getAttribute("user") == null){
+        response.sendRedirect("login.jsp");
+        return;
+    }
     User user = (User) session.getAttribute("user");
 %>
 <div class="container">
@@ -24,7 +31,7 @@
                 <i class="fas fa-user"></i>
             </div>
 
-            <h1>Hello, ${user.username}</h1>
+            <h1>Hello, <%= user.getUsername() %></h1>
             <p class="welcome-text">Welcome to your Go2Event profile</p>
 
             <div class="profile-actions">
@@ -34,9 +41,13 @@
                 <a href="logout" class="btn btn-logout">
                     <i class="fas fa-sign-out-alt"></i> Logout
                 </a>
-                <a href="delete" class="btn btn-delete">
-                    <i class="fas fa-user-times"></i> Delete Account
-                </a>
+
+                <!-- Delete Account POST Form -->
+                <form action="delete" method="post" style="display:inline;">
+                    <button type="submit" class="btn btn-delete">
+                        <i class="fas fa-user-times"></i> Delete Account
+                    </button>
+                </form>
             </div>
         </div>
 

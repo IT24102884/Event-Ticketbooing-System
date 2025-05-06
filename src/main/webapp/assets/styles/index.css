@@ -36,7 +36,7 @@ ul {
 
 /* Navbar Styles */
 .navbar {
-    background-color: #0a2540;
+    background: linear-gradient(135deg, #2c3e50, #3498db);
     color: white;
     position: sticky;
     top: 0;
@@ -52,17 +52,42 @@ ul {
     padding: 0 30px;
 }
 
+/* Updated Logo Icon Styles */
 .navbar-logo a {
-    font-size: 24px;
-    font-weight: 700;
-    color: white;
     display: flex;
     align-items: center;
+    text-decoration: none;
 }
 
-.navbar-logo i {
-    margin-right: 10px;
-    font-size: 28px;
+.logo-icon {
+    background-color: #0b3c5c;
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 8px;
+}
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #efeded;
+    font-weight: bold;
+}
+
+.logo-icon i {
+    font-size: 20px;
+    font-weight: bold;
+    color: #dddddd;
+}
+
+.login-header h1 {
+    color: #333;
+    font-size: 24px;
+    font-weight: 700;
 }
 
 .navbar-menu {
@@ -121,7 +146,7 @@ ul {
 }
 
 .download-ticket-btn:hover {
-    background-color: #45a049;
+    background-color: #00ac0b;
     transform: translateY(-2px);
     box-shadow: 0 6px 15px rgba(76, 175, 80, 0.4);
 }
@@ -132,7 +157,6 @@ ul {
 
 /* Hero Section */
 .hero {
-    /*background: linear-gradient(to right, rgba(10, 37, 64, 0.8), rgba(26, 73, 128, 0.8)), url('https://placehold.co/1200x600');*/
     background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("/assets/image/pexels-wolfgang-1002140-2747449.jpg");
     background-size: cover;
     background-position: center;
@@ -177,7 +201,7 @@ ul {
 }
 
 .search-box button {
-    background-color: #0a2540;
+    background-color: #1e538a;
     color: white;
     border: none;
     padding: 0 25px;
@@ -197,7 +221,7 @@ ul {
 .featured-events h2 {
     text-align: center;
     margin-bottom: 40px;
-    color: #0a2540;
+    color: #1e538a;
     font-size: 32px;
     font-weight: 600;
 }
@@ -223,6 +247,7 @@ ul {
 }
 
 .event-image {
+
     position: relative;
     height: 200px;
     overflow: hidden;
@@ -243,7 +268,7 @@ ul {
     position: absolute;
     top: 15px;
     right: 15px;
-    background-color: #0a2540;
+    background-color: #3176ba;
     color: white;
     padding: 5px 15px;
     border-radius: 50px;
@@ -257,7 +282,7 @@ ul {
 
 .event-details h3 {
     margin-bottom: 10px;
-    color: #0a2540;
+    color: #245b93;
     font-size: 18px;
 }
 
@@ -271,12 +296,12 @@ ul {
 
 .event-date i, .event-location i {
     margin-right: 8px;
-    color: #0a2540;
+    color:#1e538a;
 }
 
 .event-btn {
     display: inline-block;
-    background-color: #0a2540;
+    background-color: #1e538a;
     color: white;
     padding: 8px 20px;
     border-radius: 5px;
@@ -296,8 +321,8 @@ ul {
 
 .view-more-btn {
     display: inline-block;
-    color: #0a2540;
-    border: 2px solid #0a2540;
+    color: #1e5087;
+    border: 2px solid #174981;
     padding: 10px 30px;
     border-radius: 50px;
     font-weight: 500;
@@ -305,7 +330,7 @@ ul {
 }
 
 .view-more-btn:hover {
-    background-color: #0a2540;
+    background-color: #184b7e;
     color: white;
 }
 
@@ -336,12 +361,12 @@ ul {
 
 .link-box i {
     font-size: 40px;
-    color: #0a2540;
+    color: #1e538a;
     margin-bottom: 15px;
 }
 
 .link-box h3 {
-    color: #0a2540;
+    color:#1e538a;
     margin-bottom: 10px;
     font-size: 18px;
 }
@@ -353,7 +378,7 @@ ul {
 }
 
 .link-box a {
-    color: #0a2540;
+    color: #1e538a;
     font-weight: 600;
     display: inline-block;
     position: relative;
@@ -366,7 +391,7 @@ ul {
     height: 2px;
     bottom: -2px;
     left: 0;
-    background-color: #0a2540;
+    background-color: #1e538a;
     transform: scaleX(0);
     transform-origin: bottom right;
     transition: transform 0.3s ease;
@@ -379,7 +404,7 @@ ul {
 
 /* Footer Styles */
 .footer {
-    background-color: #0a2540;
+    background: linear-gradient(135deg, #2c3e50, #3498db);
     color: white;
 }
 
@@ -448,7 +473,7 @@ ul {
 }
 
 .social-icons a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(216, 216, 216, 0.2);
     transform: translateY(-3px);
 }
 

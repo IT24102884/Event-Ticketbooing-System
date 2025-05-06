@@ -27,7 +27,7 @@
 <div class="container">
     <div class="card">
         <div class="header">
-            <h1><i class="fas fa-ticket-alt"></i> TicketWorld</h1>
+            <h1><i class="fas fa-ticket-alt"></i> Go2Event</h1>
             <h2>Edit Account</h2>
         </div>
 

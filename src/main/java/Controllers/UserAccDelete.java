@@ -23,7 +23,7 @@ public class UserAccDelete extends HttpServlet {
             session.invalidate();
 
             if (isDeleted) {
-                response.sendRedirect("delete-account.jsp");
+                response.sendRedirect("index.jsp");
             }else{
                 request.setAttribute("error", "Failed to delete account!");
                 doGet(request, response);

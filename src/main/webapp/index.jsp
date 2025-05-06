@@ -13,8 +13,12 @@
 <header class="navbar">
   <div class="navbar-container">
     <div class="navbar-logo">
-      <a href="index.jsp">
-        <i class="fas fa-ticket-alt"></i> Go2Event
+      <a href="index.jsp" class="logo-link">
+        <div class="logo-icon">
+          <i class="fas fa-ticket-alt"></i>
+        </div>
+        <span class="logo-text">Go2Event</span>
+      </a>
       </a>
     </div>
 
@@ -22,8 +26,7 @@
       <ul class="navbar-links">
         <li><a href="#concerts"><i class="fas fa-music"></i> Concerts</a></li>
         <li><a href="#theater"><i class="fas fa-theater-masks"></i> Theater</a></li>
-        <li><a href="#family"><i class="fas fa-users"></i> Family</a></li>
-        <li><a href="#other"><i class="fas fa-star"></i> Other</a></li>
+        <li><a href="#family"><i class="fas fa-users"></i> Family & Others</a></li>
         <li><a href="login.jsp"><i class="fas fa-sign-in-alt"></i> Login</a></li>
       </ul>
       <a href="#" class="download-ticket-btn">
@@ -53,13 +56,13 @@
       <!-- Concert Card -->
       <div class="event-card">
         <div class="event-image">
-          <img src="/api/placeholder/400/300" alt="Concert">
+          <img src="/assets/image/image%20(111.webp" alt="Concert">
           <div class="event-tag">Concert</div>
         </div>
         <div class="event-details">
-          <h3>Summer Music Festival</h3>
+          <h3>Dawasak</h3>
           <p class="event-date"><i class="far fa-calendar"></i> Jun 15, 2025</p>
-          <p class="event-location"><i class="fas fa-map-marker-alt"></i> Central Park</p>
+          <p class="event-location"><i class="fas fa-map-marker-alt"></i> Open Air Theater Kurunegala</p>
           <a href="#" class="event-btn">Get Tickets</a>
         </div>
       </div>
@@ -67,13 +70,13 @@
       <!-- Theater Card -->
       <div class="event-card">
         <div class="event-image">
-          <img src="/api/placeholder/400/300" alt="Theater">
+          <img src="/assets/image/image223.webp" alt="Theater">
           <div class="event-tag">Theater</div>
         </div>
         <div class="event-details">
-          <h3>Hamilton</h3>
-          <p class="event-date"><i class="far fa-calendar"></i> May 20, 2025</p>
-          <p class="event-location"><i class="fas fa-map-marker-alt"></i> Grand Theater</p>
+          <h3>Sakunthala</h3>
+          <p class="event-date"><i class="far fa-calendar"></i> Jun 25, 2025</p>
+          <p class="event-location"><i class="fas fa-map-marker-alt"></i> Tower Hall colombo 10</p>
           <a href="#" class="event-btn">Get Tickets</a>
         </div>
       </div>
@@ -81,13 +84,13 @@
       <!-- Family Card -->
       <div class="event-card">
         <div class="event-image">
-          <img src="/api/placeholder/400/300" alt="Family">
+          <img src="/assets/image/image.webp" alt="Family">
           <div class="event-tag">Family</div>
         </div>
         <div class="event-details">
-          <h3>Circus Spectacular</h3>
-          <p class="event-date"><i class="far fa-calendar"></i> Apr 10, 2025</p>
-          <p class="event-location"><i class="fas fa-map-marker-alt"></i> City Arena</p>
+          <h3>Camelia</h3>
+          <p class="event-date"><i class="far fa-calendar"></i> Jun 10, 2025</p>
+          <p class="event-location"><i class="fas fa-map-marker-alt"></i> Vihara Mahadevi Park</p>
           <a href="#" class="event-btn">Get Tickets</a>
         </div>
       </div>
@@ -158,7 +161,7 @@
           <h3>Contact Us</h3>
           <ul class="contact-info">
             <li><i class="fas fa-envelope"></i> support@go2event.com</li>
-            <li><i class="fas fa-phone"></i> 076 - 600 8897</li>
+            <li><i class="fas fa-phone"></i> 0117 544 801</li>
             <li><i class="fas fa-map-marker-alt"></i> NO 12/101,Pittugala,Malabe</li>
           </ul>
         </div>

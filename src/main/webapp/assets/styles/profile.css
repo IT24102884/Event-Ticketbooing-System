@@ -12,7 +12,9 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #0a2540 0%, #1a4980 100%);
+    background-image: url('../image/pexels-wolfgang-1002140-2747449.jpg');
+    background-size: cover;
+    background-position: center;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -28,7 +30,7 @@ body {
 }
 
 .profile-container {
-    background-color: white;
+    background-color: rgba(184, 184, 184, 0.95);
     border-radius: 15px;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
     overflow: hidden;
@@ -41,23 +43,37 @@ body {
 
 /* Header Styles */
 .header {
-    background-color: #0a2540;
+    background: linear-gradient(135deg, #1c2e40, #2980b9);
     padding: 20px 30px;
     color: white;
 }
 
-.logo {
-    font-size: 24px;
-    font-weight: 600;
+.logo-container {
     display: flex;
     align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.logo {
+    color: white;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
 }
 
 .logo i {
-    margin-right: 10px;
-    font-size: 28px;
+    background: linear-gradient(135deg, #122d49, #2c5671);
+    box-shadow: 0 5px 15px rgba(3, 77, 124, 0.3);
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
 }
-
 /* Profile Content Styles */
 .profile-content {
     padding: 40px 30px;
@@ -109,10 +125,13 @@ h1 {
     font-size: 16px;
     font-weight: 500;
     text-decoration: none;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
+    min-width: 140px;     /* Set a minimum width for all buttons */
+    height: 48px;         /* Set a fixed height for all buttons */
+    box-sizing: border-box; /* Ensure padding doesn't affect size */
 }
 
 .btn i {
@@ -125,7 +144,7 @@ h1 {
 }
 
 .btn-edit:hover {
-    background-color: #1a4980;
+    background: linear-gradient(135deg, #1c2e40, #2980b9);
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(10, 37, 64, 0.2);
 }
@@ -161,7 +180,7 @@ h1 {
     font-size: 12px;
     color: #666;
     border-top: 1px solid #eee;
-    background-color: #f9fafc;
+    background-color: #f8f6f6;
 }
 
 /* Responsive Adjustments */
