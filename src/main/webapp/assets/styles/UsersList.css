@@ -1,0 +1,130 @@
+:root {
+    --primary-color: #3f51b5;
+    --primary-light: #7986cb;
+    --secondary-color: #303f9f;
+    --accent-color: #ff4081;
+    --text-dark: #212121;
+    --text-light: #757575;
+    --background: #f5f5f5;
+    --card-bg: white;
+    --success: #4caf50;
+    --warning: #ff9800;
+    --danger: #f44336;
+    --table-head: #e8eaf6;
+    --hover-color: #f5f7ff;
+    --border-color: #e0e0e0;
+    --shadow-color: rgba(63, 81, 181, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--text-dark);
+    padding: 20px;
+    background-image: linear-gradient(135deg, #f5f7ff 0%, #f5f5f5 100%);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.heading {
+    text-align: center;
+    font-size: 42px;
+    margin-bottom: 35px;
+    padding: 20px 0;
+    color: var(--primary-color);
+    font-weight: 700;
+    position: relative;
+    letter-spacing: 1px;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+}
+
+.heading i {
+    margin-right: 15px;
+    color: var(--accent-color);
+}
+
+.heading::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right,
+    transparent,
+    var(--primary-light),
+    var(--primary-color),
+    var(--accent-color),
+    transparent
+    );
+    border-radius: 2px;
+}
+
+.table-container {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px var(--shadow-color);
+    margin: 0 auto;
+    transition: all 0.3s ease;
+}
+
+.table-container:hover {
+    box-shadow: 0 15px 35px var(--shadow-color);
+    transform: translateY(-5px);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: none;
+}
+
+.head th {
+    background: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    padding: 16px 20px;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    text-align: left;
+    border: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+table td {
+    padding: 15px 20px;
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+}
+
+table tr:last-child td {
+    border-bottom: none;
+}
+
+table tr {
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+table tr:hover {
+    background-color: var(--hover-color);
+    transform: scale(1.005);
+}
+
+
+
