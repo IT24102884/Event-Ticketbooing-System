@@ -1,0 +1,16 @@
+ginuri,test@gmail.com,123,user
+dana,samapathgeeth34@gmai.com,geeth123,user
+nadil,nadildul@gmail.com,123,user
+geeth,samapathgeeth34@gmai.com,H12rest$,user
+geeth,samapathgeeth34@gmai.com,1221121,user
+geeth,samapathgeeth34@gmai.com,Nadil$123sA,user
+manji,manji@gmail.com,Manji@2004,user
+anjana,anjan@gmail.com,Anjana@1997,user
+Admin,Admin@gmail.com,Admin1234,admin
+Shankar,Shankar2004@gmail.com,Shankar2004$,admin
+kings,kings@gmail.com,Kings2004%,admin
+HiScott,HiScott200@gmail.com,Hihihi200!,admin
+AdminUser,admin@go2event.com,AdminUser2@,admin
+Admin12,Admin12@gmail.com,Admin12!,admin
+saranja,saranja@gmail.com,saranja22#1,admin
+world,world@gmail.com,world2908^,admin
