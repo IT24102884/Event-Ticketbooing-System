@@ -1,0 +1,2 @@
+U001,John Doe,john@example.com,password123,CUSTOMER
+U002,Alice Smith,alice@example.com,password456,ORGANIZER
