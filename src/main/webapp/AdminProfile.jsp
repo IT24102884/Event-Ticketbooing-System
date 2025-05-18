@@ -102,7 +102,7 @@
   <footer>
     <div class="footer-content">
       <div class="copyright">
-        <p>©Copyright <span id="year">2025</span> | Design and Developed by CodeWith Pabitra</p>
+        <p>©Copyright <span id="year">2025</span> | Design and Developed by CodeWith Shankar</p>
       </div>
     </div>
   </footer>
@@ -123,26 +123,6 @@
       this.classList.add('fa-eye-slash');
     }
   });
-
-  // Logout handler
-  document.getElementById('logout-account').addEventListener('click', function() {
-    const confirmed = confirm('Are you sure you want to logout?');
-
-    if (confirmed) {
-      alert('Logged out successfully.');
-      window.location.href = 'index.jsp';
-    }
-  });
-
-  // Delete account confirmation
-  // document.getElementById('delete-account').addEventListener('click', function() {
-  //   const confirmed = confirm('Are you sure you want to delete your account? This action cannot be undone.');
-  //
-  //   if (confirmed) {
-  //     alert('Account deleted successfully.');
-  //     window.location.href = "adminDelete";
-  //   }
-  // });
 </script>
 </body>
 </html>

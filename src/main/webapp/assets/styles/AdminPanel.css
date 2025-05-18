@@ -1,37 +1,14 @@
-:root {
-    --primary-color: #4361ee;
-    --primary-light: #4895ef;
-    --secondary-color: #3a0ca3;
-    --accent-color: #f72585;
-    --text-dark: #2b2d42;
-    --text-light: #8d99ae;
-    --background: #f8f9fa;
-    --card-bg: rgba(255, 255, 255, 0.95);
-    --card-hover: rgba(255, 255, 255, 1);
-    --nav-height: 70px;
-    --transition-normal: 0.3s ease;
-    --shadow-small: 0 4px 15px rgba(0, 0, 0, 0.05);
-    --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
-    --shadow-large: 0 20px 50px rgba(67, 97, 238, 0.15);
-    --border-radius: 15px;
-
-    /* Add font variables for easier management */
-    --font-primary: 'Poppins', sans-serif;
-    --font-headings: 'Montserrat', sans-serif;
-    --font-body: 'Inter', sans-serif;
-}
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: var(--font-body);
+    font-family: 'Inter', sans-serif;
 }
 
 body {
     min-height: 100vh;
-    background-color: var(--background);
-    color: var(--text-dark);
+    background-color: #f8f9fa;
+    color: #2b2d42;
     overflow-x: hidden;
 }
 
@@ -80,16 +57,16 @@ body {
 
 /* Header Styles */
 header {
-    height: var(--nav-height);
-    background-color: var(--card-bg);
+    height: 70px;
+    background-color: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    color: var(--text-dark);
+    color: #2b2d42;
     padding: 0 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: var(--shadow-small);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -100,7 +77,7 @@ header {
 .logo {
     font-size: 1.8rem;
     font-weight: 800;
-    font-family: var(--font-headings);
+    font-family: 'Montserrat', sans-serif;
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -117,7 +94,7 @@ header {
 }
 
 .logo .icon {
-    color: var(--primary-color);
+    color: #4361ee;
     font-size: 1.4rem;
     display: flex;
     align-items: center;
@@ -128,7 +105,7 @@ header {
     display: inline-block;
     animation: ticketWave 5s linear infinite;
     transform-origin: center;
-    color: var(--primary-color);
+    color: #4361ee;
 }
 
 /* Optional: Slow down rotation on hover for a nice effect */
@@ -144,13 +121,13 @@ header {
 
 /* Navigation with cleaner font */
 .nav-item {
-    color: var(--text-dark);
+    color: #2b2d42;
     text-decoration: none;
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    transition: color var(--transition-normal);
-    font-family: var(--font-body);
+    transition: color 0.3s ease;
+    font-family: 'Inter', sans-serif;
     font-weight: 500;
     font-size: 0.95rem;
     letter-spacing: 0.2px;
@@ -160,7 +137,7 @@ header {
 }
 
 .nav-item:hover {
-    color: var(--primary-color);
+    color: #4361ee;
 }
 
 .nav-item i {
@@ -182,22 +159,22 @@ main {
 
 /* Welcome section with more impact */
 h1 {
-    font-family: var(--font-headings);
+    font-family: 'Montserrat', sans-serif;
     font-size: 2.5rem;
     font-weight: 700;
     letter-spacing: -0.5px;
-    color: var(--text-dark);
+    color: #2b2d42;
     margin-bottom: 0.5rem;
 }
 
 .admin-name {
     font-weight: 800;
-    color: var(--primary-color);
+    color: #4361ee;
 }
 
 .subtitle {
-    font-family: var(--font-body);
-    color: var(--text-light);
+    font-family: 'Inter', sans-serif;
+    color: #8d99ae;
     font-size: 1.15rem;
     font-weight: 400;
     letter-spacing: 0.2px;
@@ -211,13 +188,13 @@ h1 {
 
 .dashboard-card {
     position: relative;
-    border-radius: var(--border-radius);
+    border-radius: 15px;
     overflow: hidden;
     height: 240px;
-    box-shadow: var(--shadow-small);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
     cursor: pointer;
-    background-color: var(--card-bg);
+    background-color: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(72, 149, 239, 0.1);
@@ -225,14 +202,14 @@ h1 {
 
 .dashboard-card:hover {
     transform: translateY(-10px);
-    box-shadow: var(--shadow-large);
+    box-shadow: 0 20px 50px rgba(67, 97, 238, 0.15);
     background-color: rgba(255, 255, 255, 0.98);
     border-color: rgba(72, 149, 239, 0.2);
 }
 
 .dashboard-card:hover .icon {
     color: white;
-    background-color: var(--primary-color);
+    background-color: #4361ee;
     transform: scale(1.1);
 }
 
@@ -247,10 +224,10 @@ h1 {
     height: 50px;
     width: 50px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--primary-light), var(--primary-color));
+    background: linear-gradient(135deg, #4895ef, #4361ee);
     opacity: 0;
     transform: scale(0.8);
-    transition: all var(--transition-normal);
+    transition: all 0.3s ease;
 }
 
 .dashboard-card:hover .icon-bg {
@@ -280,11 +257,11 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--primary-color);
+    color: #4361ee;
     font-size: 1.5rem;
     border-radius: 50%;
     background-color: rgba(67, 97, 238, 0.1);
-    transition: all var(--transition-normal);
+    transition: all 0.3s ease;
 }
 
 .dashboard-card .icon i {
@@ -302,18 +279,18 @@ h1 {
 
 /* Card headings with more visual impact */
 .dashboard-card h2 {
-    font-family: var(--font-headings);
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 0.5rem;
-    color: var(--text-dark);
+    color: #2b2d42;
     letter-spacing: -0.3px;
 }
 
 /* Card descriptions more readable */
 .card-description {
-    font-family: var(--font-body);
-    color: var(--text-light);
+    font-family: 'Inter', sans-serif;
+    color: #8d99ae;
     font-size: 0.95rem;
     line-height: 1.5;
     margin-bottom: 1rem;
@@ -332,7 +309,7 @@ h1 {
 
 /* View more links with better contrast */
 .view-more {
-    font-family: var(--font-primary);
+    font-family: 'Poppins', sans-serif;
     font-size: 0.9rem;
     font-weight: 600;
     text-transform: uppercase;
@@ -340,12 +317,12 @@ h1 {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: var(--primary-color);
+    color: #4361ee;
 }
 
 .view-more i {
     font-size: 0.8rem;
-    transition: transform var(--transition-normal);
+    transition: transform 0.3s ease;
 }
 
 .dashboard-card:hover .view-more i {
@@ -353,21 +330,21 @@ h1 {
 }
 
 .logout-card .icon {
-    color: var(--accent-color);
+    color: #f72585;
     background-color: rgba(247, 37, 133, 0.1);
 }
 
 .logout-card .icon-bg {
-    background: linear-gradient(135deg, var(--accent-color), #b5179e);
+    background: linear-gradient(135deg, #f72585, #b5179e);
 }
 
 .logout-card .view-more {
-    color: var(--accent-color);
+    color: #f72585;
 }
 
 /* Footer Styles */
 footer {
-    background-color: var(--card-bg);
+    background-color: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     padding: 1.5rem 2rem;
@@ -383,8 +360,8 @@ footer {
 }
 
 .copyright {
-    font-family: var(--font-body);
-    color: var(--text-light);
+    font-family: 'Inter', sans-serif;
+    color: #8d99ae;
     font-size: 0.85rem;
 }
 
@@ -394,19 +371,19 @@ footer {
 }
 
 .footer-links a {
-    font-family: var(--font-body);
-    color: var(--text-light);
+    font-family: 'Inter', sans-serif;
+    color: #8d99ae;
     text-decoration: none;
     font-size: 0.85rem;
     font-weight: 500;
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    transition: color var(--transition-normal);
+    transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
-    color: var(--primary-color);
+    color: #4361ee;
 }
 
 /* Responsive Styles */
@@ -455,14 +432,14 @@ footer {
 
 /* Multi-color logo animation for "Go2Event" */
 @keyframes colorShift {
-    0%, 100% { color: var(--primary-color); }
+    0%, 100% { color: #4361ee; }
     25% { color: #00c2ff; }
-    50% { color: var(--accent-color); }
+    50% { color: #f72585; }
     75% { color: #7e3ff2; }
 }
 
 @keyframes highlightShift {
-    0%, 100% { color: var(--accent-color); }
+    0%, 100% { color: #f72585; }
     25% { color: #ff8500; }
     50% { color: #00eaff; }
     75% { color: #b04aff; }
@@ -495,13 +472,13 @@ footer {
 }
 
 @keyframes colorFade {
-    0%, 100% { color: var(--primary-color); }
+    0%, 100% { color: #4361ee; }
     30% { color: #3a86ff; }
     60% { color: #4361ee; }
     90% { color: #3a0ca3; }
 }
 
 @keyframes highlightPulse {
-    0%, 100% { color: var(--accent-color); }
+    0%, 100% { color: #f72585; }
     50% { color: #4cc9f0; }
 }

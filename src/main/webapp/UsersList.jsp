@@ -42,7 +42,7 @@
                 <td><%= user[2] %></td>
                 <td><%= user[3] %></td>
                     <%
-                    }
+                      }
                 %>
             </tbody>
         </table>

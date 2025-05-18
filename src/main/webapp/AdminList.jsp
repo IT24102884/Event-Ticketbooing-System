@@ -41,7 +41,7 @@
         <td><%= admin[2] %></td>
         <td><%= admin[3] %></td>
           <%
-                    }
+          }
                 %>
       </tbody>
     </table>

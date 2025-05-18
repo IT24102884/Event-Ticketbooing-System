@@ -61,7 +61,7 @@
           <label for="email">Email Address</label>
           <div class="input-container">
             <i class="fas fa-envelope"></i>
-            <input type="email" id="email" name="email" value="${user.username}" readonly>
+            <input type="email" id="email" name="email" value="UserName" readonly>
           </div>
           <p class="field-hint">Email address cannot be changed</p>
         </div>
@@ -78,7 +78,7 @@
           <label for="new-password">New Password</label>
           <div class="input-container">
             <i class="fas fa-lock"></i>
-            <input type="password" id="new-password" name="new-password" value="${user.password}" placeholder="Enter new password">
+            <input type="password" id="new-password" name="new-password" value="Pass" placeholder="Enter new password">
             <i class="fas fa-eye-slash toggle-password"></i>
           </div>
           <p class="field-hint">Leave blank to keep current password</p>
@@ -98,7 +98,7 @@
             <i class="fas fa-save"></i>
             Save Changes
           </button>
-          <a href="profile.html" class="btn cancel-btn">
+          <a href="index.jsp" class="btn cancel-btn">
             <i class="fas fa-times"></i>
             Cancel
           </a>
@@ -126,23 +126,6 @@
       this.classList.toggle('fa-eye');
       this.classList.toggle('fa-eye-slash');
     });
-  });
-
-  // Form submission handler
-  document.getElementById('edit-profile-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    // Password validation
-    const newPassword = document.getElementById('new-password').value;
-    const confirmPassword = document.getElementById('confirm-password').value;
-
-    if (newPassword !== '' && newPassword !== confirmPassword) {
-      alert('New password and confirmation do not match!');
-      return;
-    }
-
-    alert('Profile updated successfully!');
-    window.location.href = 'profile.html';
   });
 </script>
 </body>

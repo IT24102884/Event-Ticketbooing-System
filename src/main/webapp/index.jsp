@@ -18,13 +18,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-<%--    <% --%>
-<%--        if(user.username == null){--%>
-<%--            response.sendRedirect("index.jsp");   --%>
-<%--        }--%>
-<%--    %>--%>
-
 <div class="page-wrapper">
     <div class="background-gradient"></div>
 
@@ -48,7 +41,7 @@
 
     <main>
         <div class="welcome-section">
-            <h1>Hello, <span class="admin-name">Admin ${username} </span></h1>
+            <h1>Hello, <span class="admin-name">Admin UserName </span></h1>
             <p class="subtitle">Welcome to your control center</p>
         </div>
 
@@ -98,21 +91,7 @@
                 </div>
             </div>
 
-<%--            <div class="dashboard-card logout-card" onclick="location.href='#';">--%>
-<%--                <div class="card-content">--%>
-<%--                    <div class="icon-container">--%>
-<%--                        <div class="icon"><i class="fas fa-sign-out-alt"></i></div>--%>
-<%--                        <div class="icon-bg"></div>--%>
-<%--                    </div>--%>
-<%--                    <h2>Logout</h2>--%>
-<%--                    <p class="card-description">Exit your admin session</p>--%>
-<%--                    <div class="divider"></div>--%>
-<%--                    <div class="card-footer">--%>
-<%--                        <span class="view-more">Exit <i class="fas fa-chevron-right"></i></span>--%>
-<%--                    </div>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--        </div>--%>
+        </div>
     </main>
 
     <footer>

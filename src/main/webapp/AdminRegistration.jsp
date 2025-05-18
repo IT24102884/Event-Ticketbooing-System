@@ -32,16 +32,6 @@
             </div>
             <h2>Admin Registration</h2>
             <p>Fill in the details to get started</p>
-            <% if(request.getAttribute("error") != null) { %>
-            <div class="error-message">
-                <i class="fas fa-exclamation-circle"></i> ${error}
-            </div>
-            <% } %>
-            <% if(request.getAttribute("success") != null) { %>
-            <div class="success-message">
-                <i class="fa fa-check-circle" aria-hidden="true"></i> ${success}
-            </div>
-            <% } %>
         </div>
 
         <form action= "AdminRegistration" method="post" id="signup-form">

@@ -1,25 +1,3 @@
-:root {
-    --primary-color: #4361ee;
-    --primary-light: #4895ef;
-    --primary-dark: #3a0ca3;
-    --accent-color: #f72585;
-    --text-dark: #2b2d42;
-    --text-light: #8d99ae;
-    --background: #f8f9fa;
-    --card-bg: #ffffff;
-    --success: #4cd964;
-    --warning: #ffb732;
-    --danger: #ff3b30;
-    --shadow-light: 0 5px 15px rgba(0, 0, 0, 0.05);
-    --shadow-medium: 0 15px 35px rgba(0, 0, 0, 0.1);
-    --border-radius-sm: 8px;
-    --border-radius-md: 12px;
-    --border-radius-lg: 20px;
-    --font-primary: 'Poppins', sans-serif;
-    --font-headings: 'Montserrat', sans-serif;
-    --font-body: 'Inter', sans-serif;
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -27,14 +5,19 @@
 }
 
 body {
-    font-family: var(--font-body);
-    background-color: var(--background);
-    color: var(--text-dark);
+    font-family: 'Inter', sans-serif;
+    color: #2b2d42;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 2rem;
+    /* Background image for event ticket booking system */
+    background-image: url('https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
 }
 
 .page-container {
@@ -44,7 +27,7 @@ body {
     overflow: hidden;
 }
 
-/* Background shapes */
+/* Background shapes - keep for overlay effect */
 .background-shapes {
     position: fixed;
     top: 0;
@@ -99,15 +82,36 @@ body {
     50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
 }
 
-/* Signup container */
+/* Signup container - now with glassmorphism effect */
 .signup-container {
-    background-color: var(--card-bg);
-    border-radius: var(--border-radius-lg);
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: var(--shadow-medium);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.15) inset;
     position: relative;
     z-index: 1;
     padding: 3rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Glass highlight effect */
+.signup-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(
+            to right,
+            transparent,
+            rgba(255, 255, 255, 0.8),
+            transparent
+    );
+    pointer-events: none;
 }
 
 /* Form header */
@@ -122,13 +126,62 @@ body {
     justify-content: center;
     gap: 0.5rem;
     margin-bottom: 1.5rem;
+    animation: float 4s infinite ease-in-out;
 }
 
 .brand .icon {
     font-size: 1.6rem;
-    color: var(--primary-color);
+    color: #4361ee;
     display: inline-block;
     animation: spin 8s linear infinite;
+    text-shadow: 0 0 10px rgba(67, 97, 238, 0.5);
+}
+
+/* Logo text styling */
+.logo-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    color: white;
+}
+
+/* Highlight animation for "Event" part */
+.highlight {
+    color: #f72585;
+    text-shadow: 0 0 12px rgba(247, 37, 133, 0.6);
+    animation: eventGlow 6s infinite ease-in-out;
+    display: inline-block;
+    position: relative;
+}
+
+/* Animations */
+@keyframes eventGlow {
+    0%, 100% {
+        color: #f72585;
+        text-shadow: 0 0 12px rgba(247, 37, 133, 0.6);
+    }
+    25% {
+        color: #4cc9f0;
+        text-shadow: 0 0 15px rgba(76, 201, 240, 0.7);
+    }
+    50% {
+        color: #ff9e00;
+        text-shadow: 0 0 15px rgba(255, 158, 0, 0.7);
+    }
+    75% {
+        color: #4361ee;
+        text-shadow: 0 0 15px rgba(67, 97, 238, 0.7);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
 }
 
 @keyframes spin {
@@ -136,26 +189,93 @@ body {
     100% { transform: rotate(360deg); }
 }
 
-.logo-text {
-    font-family: var(--font-headings);
-    font-size: 1.8rem;
-    font-weight: 700;
+/* Base highlight style - we'll override this with individual letter spans */
+.highlight {
+    position: relative;
+    color: white; /* Base color */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
-.highlight {
-    color: var(--accent-color);
+/* Individual letter animation for each letter in "Event" */
+.highlight span {
+    display: inline-block;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    position: relative;
+}
+
+/* First letter - E */
+.highlight span:nth-child(1) {
+    animation-name: colorChange-E;
+}
+
+/* Second letter - v */
+.highlight span:nth-child(2) {
+    animation-name: colorChange-v;
+    animation-delay: 0.5s;
+}
+
+/* Third letter - e */
+.highlight span:nth-child(3) {
+    animation-name: colorChange-e;
+    animation-delay: 1s;
+}
+
+/* Fourth letter - n */
+.highlight span:nth-child(4) {
+    animation-name: colorChange-n;
+    animation-delay: 1.5s;
+}
+
+/* Fifth letter - t */
+.highlight span:nth-child(5) {
+    animation-name: colorChange-t;
+    animation-delay: 2s;
+}
+
+/* Keyframe animations for each letter */
+@keyframes colorChange-E {
+    0%, 100% { color: #f72585; text-shadow: 0 0 10px rgba(247, 37, 133, 0.5); }
+    20%, 80% { color: #4cc9f0; text-shadow: 0 0 10px rgba(76, 201, 240, 0.5); }
+    40%, 60% { color: #4361ee; text-shadow: 0 0 10px rgba(67, 97, 238, 0.5); }
+}
+
+@keyframes colorChange-v {
+    0%, 100% { color: #4cc9f0; text-shadow: 0 0 10px rgba(76, 201, 240, 0.5); }
+    20%, 80% { color: #ff9e00; text-shadow: 0 0 10px rgba(255, 158, 0, 0.5); }
+    40%, 60% { color: #f72585; text-shadow: 0 0 10px rgba(247, 37, 133, 0.5); }
+}
+
+@keyframes colorChange-e {
+    0%, 100% { color: #38b000; text-shadow: 0 0 10px rgba(56, 176, 0, 0.5); }
+    20%, 80% { color: #f72585; text-shadow: 0 0 10px rgba(247, 37, 133, 0.5); }
+    40%, 60% { color: #ff9e00; text-shadow: 0 0 10px rgba(255, 158, 0, 0.5); }
+}
+
+@keyframes colorChange-n {
+    0%, 100% { color: #9d4edd; text-shadow: 0 0 10px rgba(157, 78, 221, 0.5); }
+    20%, 80% { color: #38b000; text-shadow: 0 0 10px rgba(56, 176, 0, 0.5); }
+    40%, 60% { color: #4cc9f0; text-shadow: 0 0 10px rgba(76, 201, 240, 0.5); }
+}
+
+@keyframes colorChange-t {
+    0%, 100% { color: #ff9e00; text-shadow: 0 0 10px rgba(255, 158, 0, 0.5); }
+    20%, 80% { color: #9d4edd; text-shadow: 0 0 10px rgba(157, 78, 221, 0.5); }
+    40%, 60% { color: #f72585; text-shadow: 0 0 10px rgba(247, 37, 133, 0.5); }
 }
 
 .form-header h2 {
-    font-family: var(--font-headings);
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.8rem;
     font-weight: 700;
     margin-bottom: 0.8rem;
-    color: var(--text-dark);
+    color: white;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .form-header p {
-    color: var(--text-light);
+    color: rgba(255, 255, 255, 0.9);
     font-size: 1rem;
 }
 
@@ -169,7 +289,8 @@ label {
     margin-bottom: 0.5rem;
     font-size: 0.9rem;
     font-weight: 500;
-    color: var(--text-dark);
+    color: white;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .input-container {
@@ -181,8 +302,9 @@ label {
 .input-container i {
     position: absolute;
     left: 1rem;
-    color: var(--text-light);
+    color: rgba(255, 255, 255, 0.7);
     font-size: 1rem;
+    z-index: 2;
 }
 
 .input-container .toggle-password {
@@ -196,28 +318,37 @@ input[type="email"],
 input[type="password"] {
     width: 100%;
     padding: 0.8rem 1rem 0.8rem 2.8rem;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: var(--border-radius-sm);
-    font-family: var(--font-body);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
     font-size: 1rem;
-    background-color: var(--background);
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     transition: all 0.3s ease;
+    color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
 }
 
 input:focus {
     outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.15);
+    border-color: rgba(67, 97, 238, 0.5);
+    box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2), 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.15);
 }
 
 .submit-btn {
     width: 100%;
     padding: 1rem;
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    background: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%);
     color: white;
     border: none;
-    border-radius: var(--border-radius-sm);
-    font-family: var(--font-primary);
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
@@ -227,11 +358,14 @@ input:focus {
     gap: 0.5rem;
     transition: all 0.3s ease;
     margin-top: 1.5rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .submit-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(135deg, #4895ef 0%, #4361ee 100%);
 }
 
 .submit-btn i {
@@ -246,7 +380,7 @@ input:focus {
     margin-top: 2rem;
     text-align: center;
     font-size: 0.9rem;
-    color: var(--text-light);
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .back-link {
@@ -254,13 +388,38 @@ input:focus {
     align-items: center;
     gap: 0.3rem;
     font-size: 0.85rem;
-    color: var(--primary-color);
+    color: white;
     text-decoration: none;
     font-weight: 500;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
 }
 
 .back-link:hover {
-    text-decoration: underline;
+    color: #4cc9f0;
+}
+
+/* Error and success messages */
+.error-message,
+.success-message {
+    padding: 0.75rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.error-message {
+    background-color: rgba(255, 59, 48, 0.2);
+    border: 1px solid rgba(255, 59, 48, 0.3);
+    color: #ffb3b0;
+}
+
+.success-message {
+    background-color: rgba(76, 217, 100, 0.2);
+    border: 1px solid rgba(76, 217, 100, 0.3);
+    color: #a8f5bb;
 }
 
 /* Responsive styles */
@@ -270,7 +429,7 @@ input:focus {
     }
 
     .signup-container {
-        border-radius: var(--border-radius-md);
+        border-radius: 12px;
         padding: 2rem;
     }
 

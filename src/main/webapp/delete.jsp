@@ -11,7 +11,7 @@
     <title>Title</title>
 </head>
 <body>
-  its delete ted succesfullu
+  it delete ted successfully
 
   <p>lorem100</p>
 </body>
