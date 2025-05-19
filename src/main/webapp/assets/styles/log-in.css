@@ -16,7 +16,6 @@ body {
     justify-content: center;
 }
 
-/* Container Styles */
 .container {
     width: 100%;
     max-width: 1200px;
@@ -35,7 +34,6 @@ body {
     padding: 40px;
 }
 
-/* Login Header Styles */
 .login-header {
     text-align: center;
     margin-bottom: 30px;

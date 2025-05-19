@@ -3,3 +3,4 @@ nadil,nadildul@gmail.com,123,user
 geeth,samapathgeeth34@gmai.com,H12rest$,user
 geeth,samapathgeeth34@gmai.com,1221121,user
 geeth,samapathgeeth34@gmai.com,Nadil$123sA,user
+dulnidu,dulmidu@gmail.com,geethIsuru@2004,user

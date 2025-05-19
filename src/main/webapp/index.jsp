@@ -19,7 +19,6 @@
         </div>
         <span class="logo-text">Go2Event</span>
       </a>
-      </a>
     </div>
 
     <nav class="navbar-menu">
@@ -29,8 +28,8 @@
         <li><a href="#family"><i class="fas fa-users"></i> Family & Others</a></li>
         <li><a href="login.jsp"><i class="fas fa-sign-in-alt"></i> Login</a></li>
       </ul>
-      <a href="#" class="download-ticket-btn">
-        <i class="fas fa-download"></i> Download Tickets
+      <a href="profile.jsp" class="profile-icon-btn">
+        <i class="fas fa-user-circle"></i>
       </a>
     </nav>
   </div>
@@ -107,10 +106,10 @@
   <div class="container">
     <div class="links-container">
       <div class="link-box">
-        <i class="fas fa-user-circle"></i>
-        <h3>Account Management</h3>
-        <p>Manage your profile and preferences</p>
-        <a href="profile.jsp">Go to Profile</a>
+        <i class="fas fa-star"></i>
+        <h3>Reviews and Feedback</h3>
+        <p>Share your experience and read reviews</p>
+        <a href="#">View Reviews</a>
       </div>
 
       <div class="link-box">

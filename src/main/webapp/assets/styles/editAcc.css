@@ -1,9 +1,6 @@
-/* EditAcc.css - Professional dark blue and white theme */
 
-/* Import Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-/* Reset and Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -76,7 +73,6 @@ body {
     opacity: 0.9;
 }
 
-/* Form Styles */
 form {
     padding: 0 45px;
 }

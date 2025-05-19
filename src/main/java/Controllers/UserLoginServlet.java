@@ -28,12 +28,11 @@ public class UserLoginServlet extends HttpServlet {
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
             response.sendRedirect("index.jsp");
-        } else if (username.equals("admin") && password.equals("admin1234")) {
+        } else if (user.getRole().equals("admin")) {
             HttpSession session = request.getSession();
-            session.setAttribute("username", username);
-            session.setAttribute("password", password);
-            response.sendRedirect("dashboard.jsp");
-        } else {
+            session.setAttribute("admin", user);
+            response.sendRedirect("AdminPanel.jsp");
+        }else {
             request.setAttribute("error", "Invalid username or password.");
             doGet(request, response);
         }
