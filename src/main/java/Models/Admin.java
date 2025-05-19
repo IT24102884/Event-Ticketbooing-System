@@ -1,6 +1,6 @@
 package Models;
 
-//inherit user
+//inherit from the user
 public class Admin extends User {
 
     public Admin(String username, String email, String password, String role) {

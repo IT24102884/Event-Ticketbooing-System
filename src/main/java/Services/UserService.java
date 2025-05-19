@@ -7,9 +7,9 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class  UserService extends HttpServlet {
+public class UserService extends HttpServlet {
     //file path
-    public static final String filePath = "C:\\Users\\MAHEN\\OneDrive\\Desktop\\Admin-Panel\\Data\\user.txt";
+    public static final String filePath = "C:\\Users\\MAHEN\\OneDrive\\Desktop\\merge\\Data\\user.txt";
 
     public void saveUser(String username, String password, String email) {
         String role = "user";
@@ -37,7 +37,6 @@ public class  UserService extends HttpServlet {
                     return true;
                 }
             }
-            bufferedReader.close();
         }catch (IOException e){
             e.getMessage();
         }
@@ -54,11 +53,9 @@ public class  UserService extends HttpServlet {
                     return new User(username, user[1],password,user[3]);
                 }
             }
-            bufferedReader.close();
         }catch (IOException e){
             e.getMessage();
         }
-
         return null;
     }
 
@@ -79,7 +76,6 @@ public class  UserService extends HttpServlet {
                     users.add(line);
                 }
             }
-            bufferedReader.close();
         }catch (IOException e){
             e.getMessage();
             return false;
@@ -89,7 +85,6 @@ public class  UserService extends HttpServlet {
                 for (String user : users) {
                     writer.write(user);
                     writer.newLine();
-                    writer.close();
                 }
                 return true;
             } catch (IOException e) {
@@ -116,7 +111,6 @@ public class  UserService extends HttpServlet {
                     users.add(line);
                 }
             }
-            reader.close();
         } catch (IOException e) {
             e.getMessage();
             return false;

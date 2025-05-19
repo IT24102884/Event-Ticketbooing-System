@@ -1,4 +1,5 @@
-<%--
+<%@ page import="Models.Admin" %>
+<%@ page import="Models.User" %><%--
   Created by IntelliJ IDEA.
   User: Shankar
   Date: 4/13/2025
@@ -15,9 +16,18 @@
     <title>Go2Event Admin Dashboard</title>
     <link rel="stylesheet" href="assets/styles/AdminPanel.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
+<%--<%--%>
+<%--    User admin = (User) session.getAttribute("admin");--%>
+<%--    if (admin == null) {--%>
+<%--        response.sendRedirect("login.jsp");--%>
+<%--        return;--%>
+<%--    }--%>
+<%--%>--%>
+
 <div class="page-wrapper">
     <div class="background-gradient"></div>
 
@@ -27,7 +37,7 @@
             <span class="logo-text">Go2<span class="highlight">Event</span></span>
         </div>
         <nav class="nav-buttons">
-            <a href="index.jsp" class="nav-item">
+            <a href="AdminPanel.jsp" class="nav-item">
                 <i class="fas fa-home"></i>
                 <span>Home</span>
             </a>
@@ -41,7 +51,7 @@
 
     <main>
         <div class="welcome-section">
-            <h1>Hello, <span class="admin-name">Admin UserName </span></h1>
+            <h1>Hello, <span class="admin-name">${admin.username} </span></h1>
             <p class="subtitle">Welcome to your control center</p>
         </div>
 
@@ -76,7 +86,7 @@
                 </div>
             </div>
 
-            <div onclick="window.location.href = 'usersList';" class="dashboard-card" >
+            <div class="dashboard-card" onclick="location.href='usersList';">
                 <div class="card-content">
                     <div class="icon-container">
                         <div class="icon"><i class="fas fa-users"></i></div>
@@ -91,6 +101,20 @@
                 </div>
             </div>
 
+            <%--            <div class="dashboard-card logout-card" onclick="location.href='#';">--%>
+            <%--                <div class="card-content">--%>
+            <%--                    <div class="icon-container">--%>
+            <%--                        <div class="icon"><i class="fas fa-sign-out-alt"></i></div>--%>
+            <%--                        <div class="icon-bg"></div>--%>
+            <%--                    </div>--%>
+            <%--                    <h2>Logout</h2>--%>
+            <%--                    <p class="card-description">Exit your admin session</p>--%>
+            <%--                    <div class="divider"></div>--%>
+            <%--                    <div class="card-footer">--%>
+            <%--                        <span class="view-more">Exit <i class="fas fa-chevron-right"></i></span>--%>
+            <%--                    </div>--%>
+            <%--                </div>--%>
+            <%--            </div>--%>
         </div>
     </main>
 

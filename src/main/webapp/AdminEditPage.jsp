@@ -1,4 +1,4 @@
-<%--
+<%@ page import="Models.User" %><%--
   Created by IntelliJ IDEA.
   User: MAHEN
   Date: 4/13/2025
@@ -17,6 +17,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
+
+<%--<%--%>
+<%--  User admin = (User) session.getAttribute("admin");--%>
+<%--  if (admin == null) {--%>
+<%--    response.sendRedirect("login.jsp");--%>
+<%--    return;--%>
+<%--  }--%>
+<%--%>--%>
+
 <div class="page-wrapper">
   <div class="background-gradient"></div>
 
@@ -26,7 +35,7 @@
       <span class="logo-text">Go2<span class="highlight">Event</span></span>
     </div>
     <nav class="nav-buttons">
-      <a href="index.jsp" class="nav-item">
+      <a href="AdminPanel.jsp" class="nav-item">
         <i class="fas fa-home"></i>
         <span>Home</span>
       </a>
@@ -52,7 +61,7 @@
           <label for="username">Username</label>
           <div class="input-container">
             <i class="fas fa-user"></i>
-            <input type="text" id="username" name="username" value="AdminUser" required>
+            <input type="text" id="username" name="username" value="${admin.username}" required>
           </div>
           <p class="field-hint">You can change your username</p>
         </div>
@@ -61,7 +70,7 @@
           <label for="email">Email Address</label>
           <div class="input-container">
             <i class="fas fa-envelope"></i>
-            <input type="email" id="email" name="email" value="UserName" readonly>
+            <input type="email" id="email" name="email" value="${admin.email}" readonly>
           </div>
           <p class="field-hint">Email address cannot be changed</p>
         </div>
@@ -78,7 +87,7 @@
           <label for="new-password">New Password</label>
           <div class="input-container">
             <i class="fas fa-lock"></i>
-            <input type="password" id="new-password" name="new-password" value="Pass" placeholder="Enter new password">
+            <input type="password" id="new-password" name="new-password" value="${admin.password}" placeholder="Enter new password">
             <i class="fas fa-eye-slash toggle-password"></i>
           </div>
           <p class="field-hint">Leave blank to keep current password</p>
@@ -94,11 +103,11 @@
         </div>
 
         <div class="form-actions">
-          <button type="submit" class="btn primary-btn">
+          <button type="submit" class="btn primary-btn" id ="sub-button">
             <i class="fas fa-save"></i>
             Save Changes
           </button>
-          <a href="index.jsp" class="btn cancel-btn">
+          <a href="AdminProfile.jsp" class="btn cancel-btn">
             <i class="fas fa-times"></i>
             Cancel
           </a>
@@ -110,14 +119,14 @@
   <footer>
     <div class="footer-content">
       <div class="copyright">
-        <p>©Copyright <span id="year">2025</span> | Design and Developed by CodeWith Pabitra</p>
+        <p>©Copyright <span id="year">2025</span> | Design and Developed by CodeWith Shankar</p>
       </div>
     </div>
   </footer>
 </div>
 
 <script>
-  // Toggle password visibility
+  // password visible
   document.querySelectorAll('.toggle-password').forEach(icon => {
     icon.addEventListener('click', function() {
       const input = this.previousElementSibling;

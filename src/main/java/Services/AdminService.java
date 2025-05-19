@@ -9,7 +9,7 @@ import java.util.List;
 
 public class AdminService extends HttpServlet {
 
-    public static final String filepath = "C:\\Users\\MAHEN\\OneDrive\\Desktop\\Admin-Panel\\Data\\user.txt";
+    public static final String filepath = "C:\\Users\\MAHEN\\OneDrive\\Desktop\\merge\\Data\\user.txt";
 
     public void saveAdmin(String username, String password, String email) {
         String role = "admin";
@@ -43,7 +43,7 @@ public class AdminService extends HttpServlet {
         return false;
     }
 
-    public static void EditAdmin(String currentEmail, String username, String email, String password, String role) throws IOException {
+    public void EditAdmin(String currentEmail, String username, String password, String role) throws IOException {
         List<String> users = new ArrayList<>();
         boolean infoUpdated = false;
 
@@ -52,7 +52,7 @@ public class AdminService extends HttpServlet {
             while ((userInfo = bufferedReader.readLine()) != null) {
                 String[] usersInfo = userInfo.split(",");
                 if (usersInfo.length > 1 && usersInfo[1].equals(currentEmail)) {
-                    users.add(username + "," + email + "," + password + "," + role);
+                    users.add(username + "," + currentEmail + "," + password + "," + role);
                     infoUpdated = true;
                 } else {
                     users.add(userInfo);

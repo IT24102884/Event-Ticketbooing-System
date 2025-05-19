@@ -1,4 +1,4 @@
-<%--
+<%@ page import="Models.User" %><%--
   Created by IntelliJ IDEA.
   User: Shankar
   Date: 4/13/2025
@@ -17,6 +17,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
+
+<%--<%--%>
+<%--    User admin = (User) session.getAttribute("admin");--%>
+<%--    if (admin == null) {--%>
+<%--        response.sendRedirect("login.jsp");--%>
+<%--        return;--%>
+<%--    }--%>
+<%--%>--%>
+
 <div class="page-container">
     <div class="background-shapes">
         <div class="shape shape-1"></div>
@@ -32,6 +41,16 @@
             </div>
             <h2>Admin Registration</h2>
             <p>Fill in the details to get started</p>
+            <% if(request.getAttribute("error") != null) { %>
+            <div class="error-message">
+                <i class="fas fa-exclamation-circle"></i> ${error}
+            </div>
+            <% } %>
+            <% if(request.getAttribute("success") != null) { %>
+            <div class="success-message">
+                <i class="fa fa-check-circle" aria-hidden="true"></i> ${success}
+            </div>
+            <% } %>
         </div>
 
         <form action= "AdminRegistration" method="post" id="signup-form">
@@ -76,7 +95,7 @@
         </form>
 
         <div class="form-footer">
-            <a href="index.jsp" class="back-link"><i class="fas fa-home"></i> Back to Dashboard</a>
+            <a href="AdminPanel.jsp" class="back-link"><i class="fas fa-home"></i> Back to Dashboard</a>
         </div>
     </div>
 </div>
