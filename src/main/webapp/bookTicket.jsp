@@ -1,101 +1,9 @@
-<%--<%@ page contentType="text/html;charset=UTF-8" language="java" %>--%>
-<%--<html>--%>
-<%--<head>--%>
-<%--    <title>Book Ticket</title>--%>
-<%--    <style>--%>
-<%--        body {--%>
-<%--            margin: 0;--%>
-<%--            padding: 0;--%>
-<%--            font-family: 'Segoe UI', sans-serif;--%>
-<%--            background: linear-gradient(to right, #74ebd5, #acb6e5);--%>
-<%--            height: 100vh;--%>
-<%--            display: flex;--%>
-<%--            justify-content: center;--%>
-<%--            align-items: center;--%>
-<%--        }--%>
+<%@ page import="java.util.List" %>
+<%@ page import="java.io.BufferedReader" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.io.IOException" %>
+<%@ page import="java.io.FileReader" %>
 
-<%--        .form-container {--%>
-<%--            background-color: white;--%>
-<%--            padding: 30px 40px;--%>
-<%--            border-radius: 12px;--%>
-<%--            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);--%>
-<%--            text-align: center;--%>
-<%--        }--%>
-
-<%--        h2 {--%>
-<%--            margin-bottom: 20px;--%>
-<%--        }--%>
-
-<%--        label {--%>
-<%--            display: block;--%>
-<%--            margin: 10px 0 5px;--%>
-<%--            font-weight: bold;--%>
-<%--        }--%>
-
-<%--        input[type="text"] {--%>
-<%--            width: 250px;--%>
-<%--            padding: 8px;--%>
-<%--            border-radius: 6px;--%>
-<%--            border: 1px solid #ccc;--%>
-<%--        }--%>
-
-<%--        button {--%>
-<%--            margin-top: 20px;--%>
-<%--            padding: 10px 20px;--%>
-<%--            background-color: #4CAF50;--%>
-<%--            border: none;--%>
-<%--            color: white;--%>
-<%--            border-radius: 6px;--%>
-<%--            cursor: pointer;--%>
-<%--        }--%>
-
-<%--        button:hover {--%>
-<%--            background-color: #45a049;--%>
-<%--        }--%>
-
-<%--        .message {--%>
-<%--            margin-top: 15px;--%>
-<%--            font-weight: bold;--%>
-<%--        }--%>
-
-<%--        .error {--%>
-<%--            color: red;--%>
-<%--        }--%>
-
-<%--        .success {--%>
-<%--            color: green;--%>
-<%--        }--%>
-<%--    </style>--%>
-<%--</head>--%>
-<%--<body>--%>
-
-<%--<div class="form-container">--%>
-<%--    <h2>Book Your Ticket</h2>--%>
-
-<%--    <!-- Display messages -->--%>
-<%--    <div class="message">--%>
-<%--        <% if (request.getParameter("error") != null) { %>--%>
-<%--        <span class="error"><%= request.getParameter("error") %></span>--%>
-<%--        <% } else if (request.getParameter("ticket") != null) { %>--%>
-<%--        <span class="success">Success! Ticket ID: <%= request.getParameter("ticket") %></span>--%>
-<%--        <% } %>--%>
-<%--    </div>--%>
-
-<%--    <!-- Form -->--%>
-<%--    <form action="bookTicket" method="post">--%>
-<%--        &lt;%&ndash;@declare id="userid"&ndash;%&gt;&lt;%&ndash;@declare id="eventid"&ndash;%&gt;--%>
-<%--        <label for="userID">User ID:</label>--%>
-<%--        <input type="text" name="userID" value="U001" required>--%>
-
-<%--        <label for="eventID">Event ID:</label>--%>
-<%--        <input type="text" name="eventID" value="E101" required>--%>
-
-<%--        <button type="submit">Book Ticket</button>--%>
-<%--    </form>--%>
-<%--</div>--%>
-
-<%--</body>--%>
-<%--</html>--%>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -202,7 +110,7 @@
             <div class="logo-icon">
                 <i class="fas fa-ticket-alt"></i>
             </div>
-            <h1 class="text-2xl font-bold text-blue-600">TicketsMinistry</h1>
+            <h1 class="text-2xl font-bold text-blue-600">go2Event</h1>
         </div>
         <div>
             <a href="#" class="text-gray-600 hover:text-blue-600 mx-2">Events</a>
@@ -223,8 +131,12 @@
 <div class="ticket-form">
     <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Ticket Booking</h2>
 
-    <% if (request.getParameter("error") != null) { %>
-    <div class="error"><%= request.getParameter("error") %></div>
+    <%
+        String error = request.getParameter("error");
+        if (error != null) {
+            String errorMessage = error.equals("InvalidUserID") ? "Invalid User ID. Please enter a valid User ID." : error;
+    %>
+    <div class="error"><%= errorMessage %></div>
     <% } %>
 
     <form action="bookTicket" method="post">
@@ -233,9 +145,36 @@
 
         <label for="eventID" class="block text-sm font-medium text-gray-700 mb-2">Select Event</label>
         <select id="eventID" name="eventID" required class="select-field" onchange="updatePrice()">
-            <option value="E101" data-price="50.00">Concert E101 - $50.00</option>
-            <option value="E102" data-price="75.00">Theater E102 - $75.00</option>
-            <option value="E103" data-price="30.00">Sports E103 - $30.00</option>
+            <option value="" data-price="0.00" disabled selected>Select an event</option>
+            <%
+                String eventsFilePath = application.getRealPath("/data/events.txt");
+                List<String[]> events = new ArrayList<>();
+                try (BufferedReader reader = new BufferedReader(new FileReader(eventsFilePath))) {
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        String[] parts = line.split(",");
+                        if (parts.length == 8) { // eventID,name,date,time,venue,totalSeats,availableSeats,price
+                            int availableSeats = Integer.parseInt(parts[6]);
+                            if (availableSeats > 0) {
+                                events.add(parts);
+                            }
+                        }
+                    }
+                } catch (IOException e) {
+                    out.println("<option value='' disabled>Error loading events</option>");
+                }
+
+                for (String[] event : events) {
+                    String eventID = event[0];
+                    String name = event[1];
+                    String date = event[2];
+                    String time = event[3];
+                    String venue = event[4];
+                    String price = event[7];
+                    String displayText = String.format("%s - %s at %s, %s ($%s)", name, date, time, venue, price);
+            %>
+            <option value="<%= eventID %>" data-price="<%= price %>"><%= displayText %></option>
+            <% } %>
         </select>
 
         <label for="quantity" class="block text-sm font-medium text-gray-700 mb-2">Number of Tickets</label>
@@ -252,8 +191,8 @@
             <option value="10">10</option>
         </select>
 
-        <div id="totalPrice" class="total-price">Total Price: $50.00</div>
-        <input type="hidden" id="totalPriceInput" name="totalPrice" value="50.00">
+        <div id="totalPrice" class="total-price">Total Price: $0.00</div>
+        <input type="hidden" id="totalPriceInput" name="totalPrice" value="0.00">
 
         <button type="submit" class="btn-checkout">Proceed to Checkout</button>
     </form>
@@ -266,8 +205,9 @@
         const totalPriceDisplay = document.getElementById('totalPrice');
         const totalPriceInput = document.getElementById('totalPriceInput');
 
-        const price = parseFloat(eventSelect.options[eventSelect.selectedIndex].getAttribute('data-price'));
-        const quantity = parseInt(quantitySelect.value);
+        const selectedOption = eventSelect.options[eventSelect.selectedIndex];
+        const price = selectedOption ? parseFloat(selectedOption.getAttribute('data-price')) : 0;
+        const quantity = parseInt(quantitySelect.value) || 1;
         const total = (price * quantity).toFixed(2);
 
         totalPriceDisplay.textContent = `Total Price: $${total}`;

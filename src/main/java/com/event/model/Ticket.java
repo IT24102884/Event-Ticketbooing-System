@@ -32,13 +32,13 @@ public class Ticket {
     }
 
     public void saveToFile() throws IOException {
-       String path="tickets.txt";
-        try(BufferedWriter bw = new BufferedWriter(new FileWriter("tickets.txt"))){
-           bw.write(ticketId+","+userId+","+eventId+","+seatNumber+","+status+","+price+","+quantity+","+totalPrice);
-           bw.newLine();
-       }catch(IOException e){
-           e.printStackTrace();
-       }
+        String path = "E:\\SLIIT_java\\TicketBookingSystem\\src\\main\\webapp\\data\\ticket.txt";
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(path, true))) {
+            String ticketData = String.format("%s,%s,%s,%s,%s,%.2f,%d,%.2f",
+                ticketId, userId, eventId, seatNumber, status, price, quantity, totalPrice);
+            writer.write(ticketData);
+            writer.newLine();
+        }
     }
 
     public String getTicketId() {

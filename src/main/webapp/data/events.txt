@@ -1,3 +1,2 @@
-E101,Rock Concert,2025-05-01,19:00,City Arena,100,100
-E102,Tech Conference,2025-06-15,10:00,Expo Hall,200,200
-
+E101,Rock Concert,2025-05-01,19:00,City Arena,100,100,50.00
+E102,Tech Conference,2025-06-15,10:00,Expo Hall,200,200,75.00

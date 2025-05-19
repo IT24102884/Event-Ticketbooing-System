@@ -26,6 +26,11 @@ public class BookTicketServlet extends HttpServlet {
             String quantityStr= request.getParameter("quantity");
             String totalPriceStr= request.getParameter("totalPrice");
 
+            if (!isValidUser(userID)) {
+                response.sendRedirect("bookTicket.jsp?error=InvalidUserID");
+                return;
+            }
+
             int quantity;
             double totalPrice;
             try{
@@ -45,11 +50,7 @@ public class BookTicketServlet extends HttpServlet {
                 response.sendRedirect("bookTicket.jsp?error=InvalidInput");
                 return;
             }
-//            String seat = getNextAvailableSeat(eventID);
-//            if (seat == null) {
-//                response.sendRedirect("bookTicket.jsp?error=NoSeatAvailable");
-//                return;
-//            }
+
             String ticketID = "T" + System.currentTimeMillis();
             String seatNumber =String.join(",", seats);
             double pricePerTicket = totalPrice / quantity;
@@ -68,6 +69,21 @@ public class BookTicketServlet extends HttpServlet {
             response.sendRedirect("error.jsp?error=" + e.getMessage());
         }
     }
+    private boolean isValidUser(String userID)throws Exception{
+        String usersFile = "E:\\SLIIT_java\\TicketBookingSystem\\src\\main\\webapp\\data\\user.txt";
+        try(BufferedReader br=new BufferedReader(new FileReader(usersFile))){
+            String line;
+            while((line=br.readLine())!=null){
+                String[] parts = line.split(",");
+                if(parts.length >= 1 && parts[0].equals(userID)){
+                    return true;
+                }
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return false;
+    }
     private List<String> getNextAvailableSeat(String eventID, int quantity) throws IOException {
         String path=getServletContext().getRealPath("/data/seats_"+eventID+".txt");
         File seatFile=new File(path);
@@ -84,8 +100,7 @@ public class BookTicketServlet extends HttpServlet {
            }
 
         }
-//        String seatNumber=null;
-//        List<String> updateLines=new ArrayList<>();
+
           List<String> seatNumber=new ArrayList<>();
           List<String> allLines=new ArrayList<>();
 
