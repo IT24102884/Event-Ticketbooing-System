@@ -1,6 +1,4 @@
-dana,samapathgeeth34@gmai.com,geeth123,user
+geethuuuu,samapathgeeth34@gmai.com,Geeth1@3,user
 nadil,nadildul@gmail.com,123,user
-geeth,samapathgeeth34@gmai.com,H12rest$,user
-geeth,samapathgeeth34@gmai.com,1221121,user
-geeth,samapathgeeth34@gmai.com,Nadil$123sA,user
-dulnidu,dulmidu@gmail.com,geethIsuru@2004,user
+dulnidu,dulmidu@gmail.com,geethIsuru@2004,admin
+SLIIT,SliitInterface@gmail.com,Sliit@1234,user

@@ -66,7 +66,7 @@ public class  UserService extends HttpServlet {
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 String[] user = line.split(",");
-                if(user[1].equalsIgnoreCase(email)){
+                if(user[1].equals(email)){
                     isDeleted = true;
                 }else{
                     users.add(line);
@@ -107,7 +107,7 @@ public class  UserService extends HttpServlet {
                 }
             }
         } catch (IOException e) {
-            e.getMessage();
+            e.printStackTrace();
             return false;
         }
 

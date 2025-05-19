@@ -25,13 +25,16 @@ public class UserLoginServlet extends HttpServlet {
         User user = UserService.loginUser(username, password);
 
         if (user != null) {
-            HttpSession session = request.getSession();
-            session.setAttribute("user", user);
-            response.sendRedirect("index.jsp");
-        } else if (user.getRole().equals("admin")) {
-            HttpSession session = request.getSession();
-            session.setAttribute("admin", user);
-            response.sendRedirect("AdminPanel.jsp");
+            if (user.getRole().equalsIgnoreCase("user")) {
+                HttpSession session = request.getSession();
+                session.setAttribute("user", user);
+                response.sendRedirect("index.jsp");
+            }
+            if(user.getRole().equalsIgnoreCase("admin")){
+                HttpSession session = request.getSession();
+                session.setAttribute("admin", user);
+                response.sendRedirect("adminPanel.jsp");
+            }
         }else {
             request.setAttribute("error", "Invalid username or password.");
             doGet(request, response);
