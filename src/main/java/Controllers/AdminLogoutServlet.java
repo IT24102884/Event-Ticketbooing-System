@@ -18,10 +18,11 @@ public class AdminLogoutServlet extends HttpServlet {
         if (session != null) {
             session.invalidate();
         }
+
         resp.setHeader("Cache-Control", "no-cache, no-store, must-revalidate");
         resp.setHeader("Pragma", "no-cache");
         resp.setDateHeader("Expires", 0);
 
-        resp.sendRedirect("login.jsp");
+        resp.sendRedirect("index.jsp");
     }
 }

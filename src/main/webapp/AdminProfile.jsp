@@ -18,14 +18,13 @@
 </head>
 <body>
 
-<%--<%--%>
-<%--  User admin = (User) session.getAttribute("admin");--%>
-<%--  if (admin == null) {--%>
-<%--    response.sendRedirect("login.jsp");--%>
-<%--    return;--%>
-<%--  }--%>
-
-<%--%>--%>
+<%
+  User admin = (User) session.getAttribute("admin");
+  if (admin == null) {
+    response.sendRedirect("login.jsp");
+    return;
+  }
+%>
 
 <div class="page-wrapper">
   <div class="background-gradient"></div>
@@ -113,6 +112,25 @@
     </div>
   </main>
 
+  <!-- Custom Alert/Confirm Dialog -->
+  <div class="modal-overlay" id="modal-overlay">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 id="modal-title">Confirmation</h2>
+          <span class="modal-close" id="modal-close">&times;</span>
+        </div>
+        <div class="modal-body">
+          <p id="modal-message">Are you sure you want to proceed?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn cancel-btn" id="modal-cancel">Cancel</button>
+          <button type="button" class="btn confirm-btn" id="modal-confirm">Confirm</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <footer>
     <div class="footer-content">
       <div class="copyright">
@@ -123,6 +141,9 @@
 </div>
 
 <script>
+  // Set current year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
   // password visibile
   document.getElementById('toggle-password').addEventListener('click', function() {
     const passwordText = document.getElementById('password-text');

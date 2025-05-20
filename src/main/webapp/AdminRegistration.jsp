@@ -18,13 +18,13 @@
 </head>
 <body>
 
-<%--<%--%>
-<%--    User admin = (User) session.getAttribute("admin");--%>
-<%--    if (admin == null) {--%>
-<%--        response.sendRedirect("login.jsp");--%>
-<%--        return;--%>
-<%--    }--%>
-<%--%>--%>
+<%
+    User admin = (User) session.getAttribute("admin");
+    if (admin == null) {
+        response.sendRedirect("index.jsp");
+        return;
+    }
+%>
 
 <div class="page-container">
     <div class="background-shapes">

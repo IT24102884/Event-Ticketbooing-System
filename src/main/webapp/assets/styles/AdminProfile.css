@@ -309,7 +309,7 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Custom modal styles */
+/* Modal styles */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -391,7 +391,6 @@ footer {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-/* Modal button styles */
 .cancel-btn {
     background-color: #f1f1f1;
     color: #2b2d42;

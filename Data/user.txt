@@ -14,3 +14,4 @@ AdminUser,admin@go2event.com,AdminUser2@,admin
 Admin12,Admin12@gmail.com,Admin12!,admin
 saranja,saranja@gmail.com,saranja22#1,admin
 world,world@gmail.com,world2908^,admin
+name,name@gmail.com,name20098*,admin

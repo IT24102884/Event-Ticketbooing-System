@@ -30,7 +30,7 @@ public class AdminDeleteServlet extends HttpServlet {
         response.setHeader("Pragma", "no-cache");
         response.setDateHeader("Expires", 0);
 
-        response.sendRedirect("index.jsp");
+        response.sendRedirect("AdminPanel.jsp");
     }
 
 }
