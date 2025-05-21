@@ -11,7 +11,6 @@ body {
     min-height: 100vh;
 }
 
-/* Page Structure */
 .page-wrapper {
     position: relative;
     min-height: 100vh;
@@ -54,7 +53,6 @@ body {
     animation: pulse 20s infinite ease-in-out alternate;
 }
 
-/* Header Styles */
 header {
     height: 70px;
     background-color: rgba(255, 255, 255, 0.95);
@@ -136,7 +134,6 @@ header {
     font-size: 1.2rem;
 }
 
-/* Main Content */
 main {
     flex: 1;
     padding: 2rem 0;
@@ -183,7 +180,6 @@ main {
     border-radius: 2px;
 }
 
-/* Table Styles */
 .table-container {
     background-color: white;
     border-radius: 12px;
@@ -238,7 +234,6 @@ table tr:hover {
     transform: scale(1.005);
 }
 
-/* Footer Styles */
 footer {
     background-color: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
@@ -282,7 +277,6 @@ footer {
     color: #4361ee;
 }
 
-/* Animations */
 @keyframes pulse {
     0%, 100% { transform: scale(1); opacity: 0.7; }
     50% { transform: scale(1.05); opacity: 0.9; }
@@ -305,7 +299,6 @@ footer {
     50% { color: #4cc9f0; }
 }
 
-/* Responsive Styles */
 @media (max-width: 768px) {
     header {
         padding: 0 1.5rem;

@@ -50,8 +50,6 @@ body {
     border-radius: 50%;
     background: radial-gradient(rgba(247, 37, 133, 0.15), transparent 70%);
 }
-
-/* Header Styles */
 header {
     height: 70px;
     background-color: rgba(255, 255, 255, 0.95);
@@ -123,7 +121,6 @@ header {
     font-size: 1.2rem;
 }
 
-/* Main Content Styles */
 main {
     flex: 1;
     padding: 2.5rem 2rem;
@@ -180,7 +177,6 @@ main {
     font-size: 1.1rem;
 }
 
-/* Profile details */
 .profile-details {
     max-width: 600px;
     margin: 0 auto;
@@ -245,7 +241,6 @@ main {
     color: #4361ee;
 }
 
-/* Action buttons */
 .action-buttons {
     display: flex;
     justify-content: center;
@@ -289,7 +284,6 @@ main {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
-/* Footer Styles */
 footer {
     background-color: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
@@ -309,7 +303,6 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Modal styles */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -409,7 +402,6 @@ footer {
     background-color: #3a0ca3;
 }
 
-/* Responsive styles */
 @media (max-width: 768px) {
     header {
         padding: 0 1.5rem;

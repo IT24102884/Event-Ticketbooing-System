@@ -27,7 +27,6 @@ body {
     overflow: hidden;
 }
 
-/* Background shapes - keep for overlay effect */
 .background-shapes {
     position: fixed;
     top: 0;
@@ -82,7 +81,6 @@ body {
     50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
 }
 
-/* Signup container - now with glassmorphism effect */
 .signup-container {
     background-color: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(12px);
@@ -97,7 +95,6 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* Glass highlight effect */
 .signup-container::before {
     content: '';
     position: absolute;
@@ -114,7 +111,6 @@ body {
     pointer-events: none;
 }
 
-/* Form header */
 .form-header {
     text-align: center;
     margin-bottom: 2.5rem;
@@ -137,7 +133,6 @@ body {
     text-shadow: 0 0 10px rgba(67, 97, 238, 0.5);
 }
 
-/* Logo text styling */
 .logo-text {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.8rem;
@@ -146,7 +141,6 @@ body {
     color: white;
 }
 
-/* Highlight animation for "Event" part */
 .highlight {
     color: #f72585;
     text-shadow: 0 0 12px rgba(247, 37, 133, 0.6);
@@ -155,7 +149,6 @@ body {
     position: relative;
 }
 
-/* Animations */
 @keyframes eventGlow {
     0%, 100% {
         color: #f72585;
@@ -189,14 +182,12 @@ body {
     100% { transform: rotate(360deg); }
 }
 
-/* Base highlight style - we'll override this with individual letter spans */
 .highlight {
     position: relative;
     color: white; /* Base color */
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
-/* Individual letter animation for each letter in "Event" */
 .highlight span {
     display: inline-block;
     animation-duration: 4s;
@@ -205,65 +196,25 @@ body {
     position: relative;
 }
 
-/* First letter - E */
-.highlight span:nth-child(1) {
-    animation-name: colorChange-E;
+.highlight span {
+    animation: colorChange 3s infinite;
+    display: inline-block;
 }
 
-/* Second letter - v */
-.highlight span:nth-child(2) {
-    animation-name: colorChange-v;
-    animation-delay: 0.5s;
+.highlight span:nth-child(1) { animation-delay: 0s; }
+.highlight span:nth-child(2) { animation-delay: 0.5s; }
+.highlight span:nth-child(3) { animation-delay: 1s; }
+.highlight span:nth-child(4) { animation-delay: 1.5s; }
+.highlight span:nth-child(5) { animation-delay: 2s; }
+
+@keyframes colorChange {
+    0%, 100%   { color: #f72585; text-shadow: 0 0 10px rgba(247, 37, 133, 0.5); }
+    20%        { color: #4cc9f0; text-shadow: 0 0 10px rgba(76, 201, 240, 0.5); }
+    40%        { color: #ff9e00; text-shadow: 0 0 10px rgba(255, 158, 0, 0.5); }
+    60%        { color: #38b000; text-shadow: 0 0 10px rgba(56, 176, 0, 0.5); }
+    80%        { color: #9d4edd; text-shadow: 0 0 10px rgba(157, 78, 221, 0.5); }
 }
 
-/* Third letter - e */
-.highlight span:nth-child(3) {
-    animation-name: colorChange-e;
-    animation-delay: 1s;
-}
-
-/* Fourth letter - n */
-.highlight span:nth-child(4) {
-    animation-name: colorChange-n;
-    animation-delay: 1.5s;
-}
-
-/* Fifth letter - t */
-.highlight span:nth-child(5) {
-    animation-name: colorChange-t;
-    animation-delay: 2s;
-}
-
-/* Keyframe animations for each letter */
-@keyframes colorChange-E {
-    0%, 100% { color: #f72585; text-shadow: 0 0 10px rgba(247, 37, 133, 0.5); }
-    20%, 80% { color: #4cc9f0; text-shadow: 0 0 10px rgba(76, 201, 240, 0.5); }
-    40%, 60% { color: #4361ee; text-shadow: 0 0 10px rgba(67, 97, 238, 0.5); }
-}
-
-@keyframes colorChange-v {
-    0%, 100% { color: #4cc9f0; text-shadow: 0 0 10px rgba(76, 201, 240, 0.5); }
-    20%, 80% { color: #ff9e00; text-shadow: 0 0 10px rgba(255, 158, 0, 0.5); }
-    40%, 60% { color: #f72585; text-shadow: 0 0 10px rgba(247, 37, 133, 0.5); }
-}
-
-@keyframes colorChange-e {
-    0%, 100% { color: #38b000; text-shadow: 0 0 10px rgba(56, 176, 0, 0.5); }
-    20%, 80% { color: #f72585; text-shadow: 0 0 10px rgba(247, 37, 133, 0.5); }
-    40%, 60% { color: #ff9e00; text-shadow: 0 0 10px rgba(255, 158, 0, 0.5); }
-}
-
-@keyframes colorChange-n {
-    0%, 100% { color: #9d4edd; text-shadow: 0 0 10px rgba(157, 78, 221, 0.5); }
-    20%, 80% { color: #38b000; text-shadow: 0 0 10px rgba(56, 176, 0, 0.5); }
-    40%, 60% { color: #4cc9f0; text-shadow: 0 0 10px rgba(76, 201, 240, 0.5); }
-}
-
-@keyframes colorChange-t {
-    0%, 100% { color: #ff9e00; text-shadow: 0 0 10px rgba(255, 158, 0, 0.5); }
-    20%, 80% { color: #9d4edd; text-shadow: 0 0 10px rgba(157, 78, 221, 0.5); }
-    40%, 60% { color: #f72585; text-shadow: 0 0 10px rgba(247, 37, 133, 0.5); }
-}
 
 .form-header h2 {
     font-family: 'Montserrat', sans-serif;
@@ -279,7 +230,6 @@ body {
     font-size: 1rem;
 }
 
-/* Form styles */
 .form-group {
     margin-bottom: 1.5rem;
 }
@@ -399,7 +349,6 @@ input:focus {
     color: #4cc9f0;
 }
 
-/* Error and success messages */
 .error-message,
 .success-message {
     padding: 0.75rem;
@@ -422,7 +371,6 @@ input:focus {
     color: #a8f5bb;
 }
 
-/* Responsive styles */
 @media (max-width: 576px) {
     body {
         padding: 1rem;

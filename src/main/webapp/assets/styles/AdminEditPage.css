@@ -51,7 +51,6 @@ body {
     background: radial-gradient(rgba(247, 37, 133, 0.15), transparent 70%);
 }
 
-/* Header Styles */
 header {
     height: 70px;
     background-color: rgba(255, 255, 255, 0.95);
@@ -123,7 +122,6 @@ header {
     font-size: 1.2rem;
 }
 
-/* Main Content Styles */
 main {
     flex: 1;
     padding: 2.5rem 2rem;
@@ -180,7 +178,6 @@ main {
     font-size: 1.1rem;
 }
 
-/* Form styles */
 .profile-form {
     max-width: 600px;
     margin: 0 auto;
@@ -259,7 +256,6 @@ input[readonly] {
     margin-left: 0.2rem;
 }
 
-/* Action buttons */
 .form-actions {
     display: flex;
     justify-content: center;
@@ -299,7 +295,6 @@ input[readonly] {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 }
 
-/* Footer Styles */
 footer {
     background-color: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
@@ -319,12 +314,10 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Form validation styles */
 input:invalid {
     border-color: #f72585;
 }
 
-/* Responsive styles */
 @media (max-width: 768px) {
     header {
         padding: 0 1.5rem;

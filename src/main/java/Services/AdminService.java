@@ -88,7 +88,6 @@ public class AdminService extends HttpServlet {
 
     public void deleteAdmin(String email) {
         List<String> AdminsList = new ArrayList<>();
-        List<String[]> NewList = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(filepath))) {
             String line;
