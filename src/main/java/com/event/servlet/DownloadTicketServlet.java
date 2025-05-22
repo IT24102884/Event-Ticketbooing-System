@@ -71,6 +71,27 @@ public class DownloadTicketServlet extends HttpServlet {
             Document doc = new Document();
             PdfWriter writer = PdfWriter.getInstance(doc, resp.getOutputStream());
             doc.open();
+            
+            // Add background
+            String bgPath = getServletContext().getRealPath("/images/ticket-background.jpg");
+            Image background = Image.getInstance(bgPath);
+            
+            // Scale background to fit page
+            float width = PageSize.A4.getWidth();
+            float height = PageSize.A4.getHeight();
+            background.scaleToFit(width, height);
+            
+            // Position background
+            background.setAbsolutePosition(0, 0);
+            
+            // Set background opacity
+            PdfContentByte canvas = writer.getDirectContentUnder();
+            canvas.saveState();
+            PdfGState state = new PdfGState();
+            state.setFillOpacity(0.3f); // Adjust opacity (0.0-1.0)
+            canvas.setGState(state);
+            canvas.addImage(background);
+            canvas.restoreState();
 
 
             String bgPath = getServletContext().getRealPath("/images/ticket-background.jpg");

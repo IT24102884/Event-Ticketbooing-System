@@ -7,7 +7,6 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
@@ -22,22 +21,13 @@ public class BookTicketServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-            String userIdentifier = request.getParameter("userIdentifier");
-
-
-            if (userIdentifier == null || userIdentifier.trim().isEmpty()) {
-                response.sendRedirect("bookTicket.jsp?error=MissingUserIdentifier");
-                return;
-            }
-
+            String userID = request.getParameter("userID");
             String eventID = request.getParameter("eventID");
-            String quantityStr = request.getParameter("quantity");
-            String totalPriceStr = request.getParameter("totalPrice");
+            String quantityStr= request.getParameter("quantity");
+            String totalPriceStr= request.getParameter("totalPrice");
 
-
-            String userID = verifyUser(userIdentifier);
-            if (userID == null) {
-                response.sendRedirect("bookTicket.jsp?error=InvalidUser");
+            if (!isValidUser(userID)) {
+                response.sendRedirect("bookTicket.jsp?error=InvalidUserID");
                 return;
             }
 
@@ -57,7 +47,7 @@ public class BookTicketServlet extends HttpServlet {
 
             List<String>seats= getNextAvailableSeat(eventID, quantity);
             if (seats==null ||seats.size()<quantity){
-                response.sendRedirect("bookTicket.jsp?error=SeatsNotAvailable"); // More specific error
+                response.sendRedirect("bookTicket.jsp?error=InvalidInput");
                 return;
             }
 
@@ -71,50 +61,28 @@ public class BookTicketServlet extends HttpServlet {
             logBooking(ticket);
             updateEventSeats(eventID,quantity);
 
-//            response.sendRedirect("success.jsp?ticket=" + ticketID
-//    + "&username=" + userID
-//    + "&eventName=" + getEventName(eventID) // Add method to get event name
-//    + "&seat=" + seatNumber
-//    + "&price=" + totalPrice
-//    + "&quantity=" + quantity);
-            HttpSession session = request.getSession();
-            session.setAttribute("ticketID", ticketID);
-            session.setAttribute("username", userID);
-            session.setAttribute("eventName", getEventName(eventID));
-            session.setAttribute("seat", seatNumber);
-            session.setAttribute("price", totalPrice);
-            session.setAttribute("quantity", quantity);
-
-            response.sendRedirect("success.jsp");
+            response.sendRedirect("success.jsp?ticket=" + ticketID +"&username=" + userID + "&eventName=" + eventID + "&seat=" + seatNumber);
 
 
-
-        }catch (Exception e){
+         }catch (Exception e){
             e.printStackTrace();
             response.sendRedirect("error.jsp?error=" + e.getMessage());
         }
     }
-    private String verifyUser(String identifier) throws IOException {
-        if (identifier == null || identifier.trim().isEmpty()) {
-            return null;
-        }
-
-        String usersFile = getServletContext().getRealPath("/data/user.txt");
-        try (BufferedReader br = new BufferedReader(new FileReader(usersFile))) {
+    private boolean isValidUser(String userID)throws Exception{
+        String usersFile = "E:\\SLIIT_java\\TicketBookingSystem\\src\\main\\webapp\\data\\user.txt";
+        try(BufferedReader br=new BufferedReader(new FileReader(usersFile))){
             String line;
-            while ((line = br.readLine()) != null) {
+            while((line=br.readLine())!=null){
                 String[] parts = line.split(",");
-                if (parts.length >= 2) {
-                    String userId = parts[0];
-                    String username = parts[1];
-
-                    if (identifier.equals(userId) || identifier.equals(username)) {
-                        return userId;
-                    }
+                if(parts.length >= 1 && parts[0].equals(userID)){
+                    return true;
                 }
             }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
-        return null;
+        return false;
     }
     private List<String> getNextAvailableSeat(String eventID, int quantity) throws IOException {
         String path=getServletContext().getRealPath("/data/seats_"+eventID+".txt");
@@ -152,7 +120,7 @@ public class BookTicketServlet extends HttpServlet {
         List<String> updatedLines=new ArrayList<>();
         for(String line:allLines){
             String[] parts = line.split(",");
-            if(parts.length==2 && seatNumber.contains(parts[0])){
+            if(path.length()==2 && seatNumber.contains(parts[0])){
                 updatedLines.add(parts[0]+",Booked");
             }else {
                 updatedLines.add(line);
@@ -184,7 +152,7 @@ public class BookTicketServlet extends HttpServlet {
                 String[] parts = line.split(",");
                 if (parts[0].equals(eventID)) {
                     int available = Integer.parseInt(parts[6]);
-                    available = available - quantity;
+                    available = available - 1;
                     parts[6] = String.valueOf(available);
                 }
                 writer.write(String.join(",", parts));
@@ -196,39 +164,18 @@ public class BookTicketServlet extends HttpServlet {
     }
 
     private void logBooking(Ticket ticket) throws IOException {
-        String path = getServletContext().getRealPath("data/bookings_log.txt");
+        String path = getServletContext().getRealPath("/data/booking_log.txt");
         String timestamp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(path, true))) {
 
-            writer.write(ticket.getTicketId() + ","
-                    + ticket.getUserId() + ","
-                    + ticket.getEventId() + ","
-                    + ticket.getSeatNumber() + ","
-                    +ticket.getPrice()+","
-                    +ticket.getQuantity()+","
-                    +ticket.getTotalPrice()+","
-                    + timestamp);
+            writer.write(ticket.getTicketId() + "," + ticket.getUserId() + "," + ticket.getEventId() + "," + ticket.getSeatNumber() + ","+ticket.getPrice()+","+ticket.getQuantity()+"," +ticket.getTotalPrice()+","+ timestamp);
 
             writer.newLine();
 
         }
 
 
-    }
-
-    private String getEventName(String eventID) throws IOException {
-        String eventsFile = getServletContext().getRealPath("/data/events.txt");
-        try (BufferedReader br = new BufferedReader(new FileReader(eventsFile))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] parts = line.split(",");
-                if (parts.length > 1 && parts[0].equals(eventID)) {
-                    return parts[1];
-                }
-            }
-        }
-        return "Unknown Event";
     }
 
 
