@@ -9,7 +9,7 @@ import java.util.*;
 
 @WebServlet(name = "ReviewServlet", urlPatterns = {"/review"})
 public class ReviewServlet extends HttpServlet {
-    private final String FILE_PATH = System.getProperty("user.home") + File.separator + "reviews.txt";
+    private final String FILE_PATH = "C:\\Users\\ASUS\\Desktop\\gotoeventreviwe\\src\\main\\webapp\\reviews.txt";
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
