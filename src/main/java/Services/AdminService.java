@@ -9,7 +9,7 @@ import java.util.List;
 
 public class AdminService extends HttpServlet {
 
-    public static final String filepath = "C:\\Users\\MAHEN\\OneDrive\\Desktop\\Admin-Panel\\Data\\user.txt";
+    public static final String filepath = "C:\\Users\\MAHEN\\OneDrive\\Desktop\\Event-Ticketbooking\\Data\\user.txt";
 
     public void saveAdmin(String username, String password, String email) {
         String role = "admin";

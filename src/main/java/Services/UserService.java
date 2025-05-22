@@ -9,7 +9,7 @@ import java.util.List;
 
 public class UserService extends HttpServlet {
     //file path
-    public static final String filePath = "C:\\Users\\MAHEN\\OneDrive\\Desktop\\Admin-Panel\\Data\\user.txt";
+    public static final String filePath = "C:\\Users\\MAHEN\\OneDrive\\Desktop\\Event-Ticketbooking\\Data\\user.txt";
 
     public void saveUser(String username, String password, String email) {
         String role = "user";
