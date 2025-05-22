@@ -1,91 +1,33 @@
-/* Base styles */
+/* Base Styles */
 body {
     font-family: 'Roboto', sans-serif;
-    background: url('../images/event-banner.jpg') center/cover no-repeat;
+    background-color: #f9fafb;
+    margin: 0;
+    padding: 0;
 }
 
-/* Banner styles */
-.banner {
-    height: 400px;
+/* Header Styles */
+.header {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    color: white;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.banner-content {
-    background: rgba(0, 0, 0, 0.5);
-    padding: 1.5rem;
-    border-radius: 8px;
-    text-align: center;
-}
-
-/* Form styles */
-.ticket-form {
-    max-width: 600px;
-    margin: 2rem auto;
-    background: white;
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
-.input-field,
-.select-field {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #d1d5db; /* Tailwind's gray-300 */
-    border-radius: 8px;
-    font-size: 1rem;
-    margin-bottom: 1rem;
-}
-
-.select-field {
-    appearance: none;
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"><path stroke="%236b7280" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 8l4 4 4-4"/></svg>') no-repeat right 0.75rem center/16px 16px;
-}
-
-.btn-checkout {
-    background-color: #3b82f6; /* Tailwind's blue-500 */
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    width: 100%;
-    font-size: 1.125rem;
-    font-weight: 600;
-    transition: background-color 0.3s;
-}
-
-.btn-checkout:hover {
-    background-color: #1d4ed8; /* Tailwind's blue-700 */
-}
-
-/* Error and total price styles */
-.error {
-    color: #dc2626; /* Tailwind's red-600 */
-    font-size: 0.875rem;
-    text-align: center;
-    margin-bottom: 1rem;
-}
-
-.total-price {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #1e3a8a; /* Tailwind's blue-900 */
-    text-align: center;
-    margin-bottom: 1rem;
-}
-
-/* Logo styles */
 .logo-container {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
 }
 
 .logo-icon {
-    background: linear-gradient(135deg, #2c3e50, #3498db); /* Tailwind's blue-800 to blue-500 */
+    background: linear-gradient(135deg, #2c3e50, #3498db);
     box-shadow: 0 5px 15px rgba(0, 95, 153, 0.3);
     width: 40px;
     height: 40px;
@@ -101,29 +43,169 @@ body {
     font-size: 20px;
 }
 
-/* Responsive design */
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #3b82f6;
+}
+
+.nav-links {
+    display: flex;
+}
+
+.nav-link {
+    color: #6b7280;
+    margin: 0 0.5rem;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #3b82f6;
+}
+
+.banner {
+    background: url('../images/event-banner.jpg') center/cover no-repeat;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.banner-content {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.banner-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.banner-subtitle {
+    font-size: 1.25rem;
+    opacity: 0.9;
+}
+
+/* Form Styles */
+.ticket-form {
+    max-width: 600px;
+    margin: 2rem auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #1f2937;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #4b5563;
+    margin-bottom: 0.5rem;
+}
+
+.input-field, .select-field {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-field:focus, .select-field:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.select-field {
+    appearance: none;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20"><path stroke="%236b7280" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 8l4 4 4-4"/></svg>') no-repeat right 0.75rem center/16px 16px;
+}
+
+/* Button Styles */
+.btn-checkout {
+    background-color: #3b82f6;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    width: 100%;
+    font-size: 1.125rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-checkout:hover {
+    background-color: #1d4ed8;
+}
+
+/* Error and Price Styles */
+.error {
+    color: #dc2626;
+    font-size: 0.875rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    background-color: #fef2f2;
+    border-radius: 6px;
+}
+
+.total-price {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1e3a8a;
+    text-align: center;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    background-color: #f0f7ff;
+    border-radius: 8px;
+}
+
+/* Responsive Styles */
 @media (max-width: 640px) {
     .banner {
         height: 300px;
     }
 
-    .banner-content {
-        padding: 1rem;
+    .banner-title {
+        font-size: 2rem;
+    }
+
+    .banner-subtitle {
+        font-size: 1rem;
     }
 
     .ticket-form {
-        margin: 1rem;
-        padding: 1rem;
+        padding: 1.5rem;
+        margin: 1.5rem;
     }
 
-    .input-field,
-    .select-field {
-        padding: 0.5rem;
-        font-size: 0.875rem;
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
     }
 
-    .btn-checkout {
-        padding: 0.5rem 1rem;
-        font-size: 1rem;
+    .nav-links {
+        margin-top: 1rem;
     }
 }

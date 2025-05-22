@@ -11,7 +11,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -61,7 +60,12 @@ public class BookTicketServlet extends HttpServlet {
             logBooking(ticket);
             updateEventSeats(eventID,quantity);
 
-            response.sendRedirect("success.jsp?ticket=" + ticketID +"&username=" + userID + "&eventName=" + eventID + "&seat=" + seatNumber);
+            response.sendRedirect("success.jsp?ticket=" + ticketID 
+    + "&username=" + userID 
+    + "&eventName=" + eventID 
+    + "&seat=" + seatNumber 
+    + "&price=" + totalPrice 
+    + "&quantity=" + quantity);
 
 
          }catch (Exception e){
@@ -169,7 +173,14 @@ public class BookTicketServlet extends HttpServlet {
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(path, true))) {
 
-            writer.write(ticket.getTicketId() + "," + ticket.getUserId() + "," + ticket.getEventId() + "," + ticket.getSeatNumber() + ","+ticket.getPrice()+","+ticket.getQuantity()+"," +ticket.getTotalPrice()+","+ timestamp);
+            writer.write(ticket.getTicketId() + ","
+                    + ticket.getUserId() + ","
+                    + ticket.getEventId() + ","
+                    + ticket.getSeatNumber() + ","
+                    +ticket.getPrice()+","
+                    +ticket.getQuantity()+","
+                    +ticket.getTotalPrice()+","
+                    + timestamp);
 
             writer.newLine();
 
