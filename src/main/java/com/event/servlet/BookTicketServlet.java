@@ -11,7 +11,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -75,7 +74,7 @@ public class BookTicketServlet extends HttpServlet {
         }
     }
     private boolean isValidUser(String userID)throws Exception{
-        String usersFile = "E:\\SLIIT_java\\TicketBookingSystem\\src\\main\\webapp\\data\\user.txt";
+        String usersFile =getServletContext().getRealPath("/data/user.txt");
         try(BufferedReader br=new BufferedReader(new FileReader(usersFile))){
             String line;
             while((line=br.readLine())!=null){
