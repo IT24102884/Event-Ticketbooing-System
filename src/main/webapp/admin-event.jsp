@@ -50,7 +50,7 @@
 
             // Now, iterate over the 'sortedEvents' list to display them
             if(!sortedEvents.isEmpty()){ // Check if the sorted list is not empty
-                for(Event event : sortedEvents){ // Iterate over the sorted list
+                for(Event event : sortedEvents){ // Iterate over the sorted List
                     String categoryClass = "other";
                     if(event.getCategory().equalsIgnoreCase("Concert")) {
                         categoryClass = "concert";
