@@ -2,6 +2,7 @@
 <%@ page import="models.Event" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="Services.EventService" %>
+<%@ page import="Services.MergeSort" %> <%-- MergeSort සඳහා මේ import එක එකතු කරන්න --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!DOCTYPE html>
@@ -9,10 +10,8 @@
 <head>
     <title>Go2Event -Event Management </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/admin-event.css">
 </head>
 <body>
@@ -42,9 +41,16 @@
     </h2>
     <div class="event-container">
         <%
-            List<Event> events = Services.EventService.displayAllEvents();
-            if(!events.isEmpty()){
-                for(Event event : events){
+            // 1. Service එකෙන් සියලුම events ලබා ගන්න (මේ ලැයිස්තුව වර්ග කර නැත)
+            List<Event> allEvents = Services.EventService.displayAllEvents();
+
+            // 2. ඔබගේ MergeSort ඇල්ගොරිතමය භාවිතයෙන් ලැයිස්තුව වර්ග කරන්න
+            // මෙය වර්ග කරන ලද (දිනය අනුව පැරණිම දේ මුලින්, ඔබගේ MergeSort logic එකට අනුව) නව ලැයිස්තුවක් ආපසු ලබා දෙනු ඇත.
+            List<Event> sortedEvents = Services.MergeSort.sortByDate(allEvents); // ඔබගේ sorting method එක කැඳවන්න!
+
+            // දැන්, 'sortedEvents' ලැයිස්තුව හරහා iterate කරන්න
+            if(!sortedEvents.isEmpty()){ // වර්ග කරන ලද ලැයිස්තුව හිස් නොවේ නම් පරීක්ෂා කරන්න
+                for(Event event : sortedEvents){ // වර්ග කරන ලද ලැයිස්තුව හරහා iterate කරන්න
                     String categoryClass = "other";
                     if(event.getCategory().equalsIgnoreCase("Concert")) {
                         categoryClass = "concert";
@@ -76,15 +82,15 @@
             </div>
         </div>
         <%
-            }
-        } else {
+            } // for loop එක අවසන්
+        } else { // වර්ග කරන ලද ලැයිස්තුව හිස් නම්
         %>
         <div class="empty-state">
             <i class="fas fa-calendar-xmark"></i>
             <p>No events available.</p>
         </div>
         <%
-            }
+            } // if-else එක අවසන්
         %>
     </div>
 </div>
