@@ -11,7 +11,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -55,9 +54,9 @@ public class BookTicketServlet extends HttpServlet {
             String seatNumber =String.join(",", seats);
             double pricePerTicket = totalPrice / quantity;
             Ticket ticket = new Ticket(ticketID, userID, eventID, seatNumber, "BOOKED",pricePerTicket,quantity,totalPrice);
-
+            String path = getServletContext().getRealPath("/data/ticket.txt");
             queue.addTicket(ticket);
-            ticket.saveToFile();
+            ticket.saveToFile(path);
             logBooking(ticket);
             updateEventSeats(eventID,quantity);
 
@@ -75,7 +74,7 @@ public class BookTicketServlet extends HttpServlet {
         }
     }
     private boolean isValidUser(String userID)throws Exception{
-        String usersFile = "E:\\SLIIT_java\\TicketBookingSystem\\src\\main\\webapp\\data\\user.txt";
+        String usersFile =getServletContext().getRealPath("/data/user.txt");
         try(BufferedReader br=new BufferedReader(new FileReader(usersFile))){
             String line;
             while((line=br.readLine())!=null){

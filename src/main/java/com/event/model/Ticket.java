@@ -31,16 +31,14 @@ public class Ticket {
         this.totalPrice = totalPrice;
     }
 
-    public void saveToFile() throws IOException {
-        String path = "E:\\SLIIT_java\\TicketBookingSystem\\src\\main\\webapp\\data\\ticket.txt";
+    public void saveToFile(String path) throws IOException {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(path, true))) {
             String ticketData = String.format("%s,%s,%s,%s,%s,%.2f,%d,%.2f",
-                ticketId, userId, eventId, seatNumber, status, price, quantity, totalPrice);
+                    ticketId, userId, eventId, seatNumber, status, price, quantity, totalPrice);
             writer.write(ticketData);
             writer.newLine();
         }
     }
-
     public String getTicketId() {
         return ticketId;
     }
