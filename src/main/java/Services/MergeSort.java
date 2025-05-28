@@ -4,7 +4,7 @@ import models.Event;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.time.LocalDate; // Import LocalDate for date objects
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter; // Import DateTimeFormatter for parsing date strings
 
 public class MergeSort {
