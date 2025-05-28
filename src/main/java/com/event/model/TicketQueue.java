@@ -1,19 +1,18 @@
 package com.event.model;
 
-import java.util.LinkedList;
-import java.util.Queue;
-
 public class TicketQueue {
-    private Queue<Ticket> queue=new LinkedList<>();
+    private MyQueue<Ticket> queue = new MyLinkedQueue<>();
 
     public void addTicket(Ticket ticket) {
-        queue.add(ticket);
+        queue.offer(ticket);
     }
-    public Ticket processNextTicket(){
+
+    public Ticket processNextTicket() {
         return queue.poll();
     }
 
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return queue.isEmpty();
     }
 }
+

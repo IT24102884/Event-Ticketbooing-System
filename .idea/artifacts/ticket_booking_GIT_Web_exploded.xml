@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="ticket-booking-GIT:Web exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/ticket_booking_GIT_Web_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="ticket-booking-GIT/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="ticket-booking-GIT" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

@@ -54,9 +54,9 @@ public class BookTicketServlet extends HttpServlet {
             String seatNumber =String.join(",", seats);
             double pricePerTicket = totalPrice / quantity;
             Ticket ticket = new Ticket(ticketID, userID, eventID, seatNumber, "BOOKED",pricePerTicket,quantity,totalPrice);
-
+            String path = getServletContext().getRealPath("/data/ticket.txt");
             queue.addTicket(ticket);
-            ticket.saveToFile();
+            ticket.saveToFile(path);
             logBooking(ticket);
             updateEventSeats(eventID,quantity);
 

@@ -126,6 +126,9 @@
 
         <button type="submit" class="btn-checkout">Proceed to Checkout</button>
     </form>
+    <form action="listTickets" method="get">
+        <button type="submit">list</button>
+    </form>
 </div>
 
 <script src="js/bookTicket.js"></script>
