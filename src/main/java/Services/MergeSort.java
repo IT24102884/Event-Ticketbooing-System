@@ -1,6 +1,6 @@
 package Services;
 
-import models.Event; // Assuming models.Event is the correct package for your Event class
+import models.Event;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,12 +32,7 @@ public class MergeSort {
         List<Event> result = new ArrayList<>();
         int i = 0, j = 0;
 
-        // *** CRITICAL STEP: Define your date format here ***
-        // You MUST replace "yyyy-MM-dd" with the actual format of your date strings
-        // stored in Event.getDate(). Examples:
-        //  - If dates are "2024-05-28": DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        //  - If dates are "28-05-2024": DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-        //  - If dates are "05/28/2024": DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd"); // <--- CHANGE THIS IF YOUR FORMAT IS DIFFERENT!
 
         while (i < left.size() && j < right.size()) {
@@ -58,14 +53,7 @@ public class MergeSort {
                 j++;
             }
 
-            // If you want DESCENDING order (newest date first), change the comparison:
-            // if (leftDate.compareTo(rightDate) >= 0) { // Or rightDate.compareTo(leftDate) <= 0
-            //     result.add(leftEvent);
-            //     i++;
-            // } else {
-            //     result.add(rightEvent);
-            //     j++;
-            // }
+
         }
 
         // Add any remaining elements from the left list
