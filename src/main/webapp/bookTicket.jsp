@@ -204,7 +204,7 @@
 
         .ticket-form {
             max-width: 650px;
-            margin: -100px auto 3rem;
+            margin: 2rem auto;
             background: white;
             padding: 2.5rem;
             border-radius: 16px;
